@@ -16,7 +16,7 @@ struct SettingsScreen: View {
         NavigationStack {
             List {
                 Section("Device Settings") {
-                    Picker("Color Scheme", selection: $settings.colorScheme) {
+                    Picker("Appearance", selection: $settings.colorScheme) {
                         Text("System").tag(ColorScheme?.none)
                         Text("Light").tag(ColorScheme?.some(.light))
                         Text("Dark").tag(ColorScheme?.some(.dark))
@@ -40,6 +40,16 @@ struct SettingsScreen: View {
                     Text("Dynamic Type")
                 } footer: {
                     Text(String(describing: settings.dynamicType))
+                }
+                Section {
+                    Link("Live Form", destination: .liveForm)
+                    Link("AVKit", destination: .avKit)
+                    Link("Swift Charts", destination: .charts)
+                    Link("MapKit", destination: .mapKit)
+                } header: {
+                    Text("Included Addons")
+                } footer: {
+                    Text("Use Xcode to include additional addons")
                 }
             }
                 .navigationTitle("Settings")

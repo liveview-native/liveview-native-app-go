@@ -32,6 +32,7 @@ struct OnShakeGestureModifier: ViewModifier {
 }
 
 extension View {
+    /// Perform an action when the device is shaken.
     func onShakeGesture(perform action: @escaping () -> Void) -> some View {
         self.modifier(OnShakeGestureModifier(action: action))
     }

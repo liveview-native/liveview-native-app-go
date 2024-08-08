@@ -8,6 +8,10 @@
 import SwiftUI
 import VisionKit
 
+/// A View that scans for codes.
+/// 
+/// A binding is updated with the recognized items,
+/// and an action performed when a scanned item is tapped.
 struct DataScannerView: UIViewControllerRepresentable {
     var isActive: Bool = true
     @Binding var items: [RecognizedItem]
@@ -34,7 +38,7 @@ struct DataScannerView: UIViewControllerRepresentable {
         )
         controller.delegate = context.coordinator
         if isActive {
-            try! controller.startScanning()
+            try? controller.startScanning()
         } else {
             controller.stopScanning()
         }
@@ -43,7 +47,7 @@ struct DataScannerView: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
         if isActive {
-            try! uiViewController.startScanning()
+            try? uiViewController.startScanning()
         } else {
             uiViewController.stopScanning()
         }
