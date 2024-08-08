@@ -51,6 +51,15 @@ struct SettingsScreen: View {
                 } footer: {
                     Text("Use Xcode to include additional addons")
                 }
+                
+                Section("About") {
+                    LabeledContent("Client Version") {
+                        Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")
+                            .textSelection(.enabled)
+                    }
+                    LabeledContent("Build", value: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "")
+                    Link("Release Notes", destination: URL(string: "https://github.com/liveview-native/liveview-client-swiftui/releases/tag/\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")")!)
+                }
             }
                 .navigationTitle("Settings")
                 .navigationBarTitleDisplayMode(.inline)
