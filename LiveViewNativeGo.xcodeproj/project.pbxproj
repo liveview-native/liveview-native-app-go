@@ -427,6 +427,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveViewNativeGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "LVN Go";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=macosx*]" = "LiveView Native Go";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scan a code to connect to a LiveView";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -443,7 +444,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "0.3.0-rc.3";
+				MARKETING_VERSION = "0.3.0-rc.4";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -469,6 +470,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiveViewNativeGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "LVN Go";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=macosx*]" = "LiveView Native Go";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scan a code to connect to a LiveView";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -485,7 +487,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "0.3.0-rc.3";
+				MARKETING_VERSION = "0.3.0-rc.4";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
