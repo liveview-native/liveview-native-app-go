@@ -8,27 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var settings = Settings()
     @State private var isSettingsOpen = false
     
     var body: some View {
         NavigationStack {
             AppsScreen()
+                #if os(iOS)
                 .toolbarTitleMenu {
-                    Button {
-                        isSettingsOpen = true
-                    } label: {
-                        Label("Settings", systemImage: "gear")
-                    }
-                    Link(destination: .documentation) {
-                        Label("Documentation", systemImage: "book.closed.fill")
-                    }
+                    toolbarItems
                 }
                 .sheet(isPresented: $isSettingsOpen) {
                     SettingsScreen()
                 }
+                #else
+                .toolbar {
+                    toolbarItems
+                }
+                #endif
         }
-        .environment(settings)
+    }
+    
+    @ViewBuilder
+    var toolbarItems: some View {
+        #if os(macOS)
+        SettingsLink()
+        Button {
+            NSWorkspace.shared.open(.documentation)
+        } label: {
+            Label("Documentation", systemImage: "book.closed.fill")
+        }
+        #else
+        Button {
+            isSettingsOpen = true
+        } label: {
+            Label("Settings", systemImage: "gear")
+        }
+        Link(destination: .documentation) {
+            Label("Documentation", systemImage: "book.closed.fill")
+        }
+        #endif
     }
 }
 

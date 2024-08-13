@@ -10,10 +10,37 @@ import TipKit
 
 @main
 struct LiveViewNativeGoApp: App {
+    @State private var settings = Settings()
+    @Environment(\.dynamicTypeSize) private var dynamicType
+    
+    #if os(macOS)
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    #endif
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+        .environment(settings)
+        .commands {
+            CommandGroup(replacing: .newItem) {}
+        }
+        #if os(macOS)
+        WindowGroup(for: SelectedApp.self) { $app in
+            if let app {
+                app.makeLiveView(settings: settings, dynamicType: dynamicType)
+                    .environment(settings)
+                    .focusedSceneValue(\.focusedApp, app)
+            }
+        }
+        .commands {
+            QuickActionsCommands()
+        }
+        SwiftUI.Settings {
+            SettingsScreen()
+        }
+        .environment(settings)
+        #endif
     }
     
     init() {
@@ -27,3 +54,11 @@ struct LiveViewNativeGoApp: App {
         }
     }
 }
+
+#if os(macOS)
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+}
+#endif

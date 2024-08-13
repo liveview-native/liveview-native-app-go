@@ -26,6 +26,12 @@
 		00C48D462C65599B002B23FF /* LiveViewNativeStylesheet in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D452C65599B002B23FF /* LiveViewNativeStylesheet */; };
 		00C48D492C6559AA002B23FF /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D482C6559AA002B23FF /* LiveViewNativeMapKit */; };
 		00C48D4C2C6559BF002B23FF /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D4B2C6559BF002B23FF /* LiveViewNativeCharts */; };
+		00C48D4F2C656C47002B23FF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D4E2C656C47002B23FF /* ErrorView.swift */; };
+		00C48D512C656C60002B23FF /* DisconnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D502C656C60002B23FF /* DisconnectedView.swift */; };
+		00C48D532C656C7B002B23FF /* ReconnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D522C656C7B002B23FF /* ReconnectingView.swift */; };
+		00C48D552C656CAD002B23FF /* ConnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D542C656CAD002B23FF /* ConnectingView.swift */; };
+		00C48D572C6BAA02002B23FF /* QuickActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D562C6BAA02002B23FF /* QuickActionsModifier.swift */; };
+		00C48D592C6BAA18002B23FF /* QuickActionsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D582C6BAA18002B23FF /* QuickActionsCommands.swift */; };
 		00CB96322C62886500ADBF08 /* LiveViewNativeAVKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00CB96312C62886500ADBF08 /* LiveViewNativeAVKit */; };
 		00CB96352C628A1500ADBF08 /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 00CB96342C628A1500ADBF08 /* LiveViewNativeCharts */; };
 		00CB96382C62951100ADBF08 /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00CB96372C62951100ADBF08 /* LiveViewNativeMapKit */; };
@@ -57,6 +63,12 @@
 		000C92852BB3150F00E553D4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		00ABCC442BED72B80039E1CE /* ShakeGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGesture.swift; sourceTree = "<group>"; };
 		00ABCC472BF395170039E1CE /* DataScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerView.swift; sourceTree = "<group>"; };
+		00C48D4E2C656C47002B23FF /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		00C48D502C656C60002B23FF /* DisconnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectedView.swift; sourceTree = "<group>"; };
+		00C48D522C656C7B002B23FF /* ReconnectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconnectingView.swift; sourceTree = "<group>"; };
+		00C48D542C656CAD002B23FF /* ConnectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingView.swift; sourceTree = "<group>"; };
+		00C48D562C6BAA02002B23FF /* QuickActionsModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionsModifier.swift; sourceTree = "<group>"; };
+		00C48D582C6BAA18002B23FF /* QuickActionsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionsCommands.swift; sourceTree = "<group>"; };
 		00CB96392C62988300ADBF08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		00CB96412C62BD3100ADBF08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +122,7 @@
 				000C92842BB3150400E553D4 /* Model */,
 				000C927F2BB30FB000E553D4 /* Screens */,
 				00ABCC432BED72AF0039E1CE /* Helpers */,
+				00C48D4D2C656C3B002B23FF /* Phase Views */,
 				000C92742BB30EDF00E553D4 /* Assets.xcassets */,
 				000C92762BB30EDF00E553D4 /* LiveViewNativeGo.entitlements */,
 				000C92772BB30EDF00E553D4 /* Preview Content */,
@@ -145,11 +158,32 @@
 		00ABCC432BED72AF0039E1CE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				00C48D5A2C6BAAAE002B23FF /* QuickActions */,
 				00ABCC472BF395170039E1CE /* DataScannerView.swift */,
 				00ABCC442BED72B80039E1CE /* ShakeGesture.swift */,
 				00CB96392C62988300ADBF08 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		00C48D4D2C656C3B002B23FF /* Phase Views */ = {
+			isa = PBXGroup;
+			children = (
+				00C48D542C656CAD002B23FF /* ConnectingView.swift */,
+				00C48D502C656C60002B23FF /* DisconnectedView.swift */,
+				00C48D4E2C656C47002B23FF /* ErrorView.swift */,
+				00C48D522C656C7B002B23FF /* ReconnectingView.swift */,
+			);
+			path = "Phase Views";
+			sourceTree = "<group>";
+		};
+		00C48D5A2C6BAAAE002B23FF /* QuickActions */ = {
+			isa = PBXGroup;
+			children = (
+				00C48D562C6BAA02002B23FF /* QuickActionsModifier.swift */,
+				00C48D582C6BAA18002B23FF /* QuickActionsCommands.swift */,
+			);
+			path = QuickActions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,13 +280,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				000C92812BB30FC600E553D4 /* AppsScreen.swift in Sources */,
+				00C48D592C6BAA18002B23FF /* QuickActionsCommands.swift in Sources */,
 				000C92732BB30EDD00E553D4 /* ContentView.swift in Sources */,
+				00C48D552C656CAD002B23FF /* ConnectingView.swift in Sources */,
 				00ABCC452BED72B80039E1CE /* ShakeGesture.swift in Sources */,
+				00C48D572C6BAA02002B23FF /* QuickActionsModifier.swift in Sources */,
 				000C92832BB3146800E553D4 /* SettingsScreen.swift in Sources */,
 				000C92712BB30EDD00E553D4 /* LiveViewNativeGoApp.swift in Sources */,
 				000C92862BB3150F00E553D4 /* Settings.swift in Sources */,
 				00ABCC482BF395170039E1CE /* DataScannerView.swift in Sources */,
+				00C48D532C656C7B002B23FF /* ReconnectingView.swift in Sources */,
+				00C48D4F2C656C47002B23FF /* ErrorView.swift in Sources */,
 				00CB963A2C62988300ADBF08 /* Constants.swift in Sources */,
+				00C48D512C656C60002B23FF /* DisconnectedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -449,7 +489,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -485,40 +525,40 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-native-live-form";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = "0.3.0-rc.3";
+				kind = exactVersion;
+				version = "0.3.0-rc.3";
 			};
 		};
 		00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-client-swiftui/";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = "0.3.0-rc.4";
 			};
 		};
 		00C48D472C6559AA002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-mapkit";
 			requirement = {
-				branch = "content-builder-live-context";
-				kind = branch;
+				kind = exactVersion;
+				version = "0.3.0-rc.4";
 			};
 		};
 		00C48D4A2C6559BF002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-charts";
 			requirement = {
-				branch = "content-builder-live-context";
-				kind = branch;
+				kind = exactVersion;
+				version = "0.3.0-rc.4";
 			};
 		};
 		00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-avkit";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "0.3.0-rc.3";
+				kind = exactVersion;
+				version = "0.3.0-rc.3";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

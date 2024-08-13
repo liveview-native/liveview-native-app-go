@@ -5,6 +5,7 @@
 //  Created by Carson Katri on 5/14/24.
 //
 
+#if os(iOS)
 import SwiftUI
 import VisionKit
 
@@ -78,3 +79,4 @@ struct DataScannerView: UIViewControllerRepresentable {
         }
     }
 }
+#endif

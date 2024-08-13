@@ -61,6 +61,7 @@ struct SettingsScreen: View {
                     Link("Release Notes", destination: URL(string: "https://github.com/liveview-native/liveview-client-swiftui/releases/tag/\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")")!)
                 }
             }
+                #if os(iOS)
                 .navigationTitle("Settings")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -70,6 +71,7 @@ struct SettingsScreen: View {
                         }
                     }
                 }
+                #endif
         }
     }
 }

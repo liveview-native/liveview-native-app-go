@@ -15,9 +15,30 @@ import LiveViewNativeMapKit
 import TipKit
 
 /// The current app to display, with a unique ID for each instance of this app launched.
-struct SelectedApp: Identifiable, Equatable {
+struct SelectedApp: Identifiable, Hashable, Codable {
     let url: URL
     let id: UUID
+    
+    @ViewBuilder
+    func makeLiveView(settings: Settings, dynamicType: DynamicTypeSize) -> some View {
+        #LiveView(
+            url,
+            addons: [.liveForm, .avKit, .charts, .mapKit]
+        ) {
+            ConnectingView(url: url)
+        } disconnected: {
+            DisconnectedView()
+        } reconnecting: { content, isReconnecting in
+            ReconnectingView(isReconnecting: isReconnecting) {
+                content
+            }
+        } error: { error in
+            ErrorView(error: error)
+        }
+        .preferredColorScheme(settings.colorScheme)
+        .dynamicTypeSize(settings.dynamicTypeEnabled ? settings.dynamicType : dynamicType)
+        .environment(settings)
+    }
 }
 
 /// A tip on accessing quick actions.
@@ -58,13 +79,20 @@ struct AppsScreen: View {
     
     @AppStorage("customURL") private var inputURL: String = ""
     
+    #if os(iOS)
     @State private var items: [RecognizedItem] = []
+    #endif
     
     @Environment(Settings.self) private var settings
     
     @Environment(\.dynamicTypeSize) private var dynamicType
     
+    #if os(macOS)
+    @Environment(\.openWindow) private var openWindow
+    #endif
+    
     var body: some View {
+        #if os(iOS)
         DataScannerView(
             isActive: selection == nil,
             items: $items.animation(.default),
@@ -110,24 +138,51 @@ struct AppsScreen: View {
                     .keyboardType(.URL)
                 Button("Cancel", role: .cancel) {}
                 Button("OK") {
-                    selection = URL(string: inputURL.starts(with: "http://") || inputURL.starts(with: "https://") ? inputURL : "http://\(inputURL)")
+                    selection = URL(string: appendingScheme(to: inputURL))
                         .flatMap { .init(url: $0, id: UUID()) }
                 }
             }
             // display the selected app
             .fullScreenCover(item: $selection) { app in
-                #LiveView(
-                    app.url,
-                    addons: [.liveForm, .avKit, .charts, .mapKit],
-                    reconnecting: { _, _ in fatalError() }
-                )
-                .preferredColorScheme(settings.colorScheme)
-                .dynamicTypeSize(settings.dynamicTypeEnabled ? settings.dynamicType : dynamicType)
-                .environment(settings)
-                .modifier(QuickActionsModifier(app: app, selection: $selection))
+                app.makeLiveView(settings: settings, dynamicType: dynamicType)
+                    .modifier(QuickActionsModifier(app: self, selection: $selection))
             }
+        #else
+        VStack {
+            VStack {
+                TextField("URL", text: $inputURL)
+                    .autocorrectionDisabled()
+                    .textFieldStyle(.roundedBorder)
+                Button {
+                    guard let url = URL(string: appendingScheme(to: inputURL))
+                    else { return }
+                    openWindow(value: SelectedApp(url: url, id: .init()))
+                } label: {
+                    Label("Launch", systemImage: "arrow.up.right.square.fill")
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            Divider()
+            Button {
+                openWindow(value: SelectedApp(url: URL(string: "http://localhost:4000")!, id: .init()))
+            } label: {
+                Label("Launch Local Host", systemImage: "network")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+        }
+        .controlSize(.extraLarge)
+        .buttonStyle(.borderedProminent)
+        .padding()
+        .navigationTitle("LiveView Native Go")
+        #endif
     }
     
+    func appendingScheme(to inputURL: String) -> String {
+        inputURL.starts(with: "http://") || inputURL.starts(with: "https://") ? inputURL : "http://\(inputURL)"
+    }
+    
+    #if os(iOS)
     @ViewBuilder
     var currentScanOverlay: some View {
         if case let .barcode(code) = items.last,
@@ -155,6 +210,7 @@ struct AppsScreen: View {
             .tint(.yellow)
         }
     }
+    #endif
     
     @ViewBuilder
     var customURLButton: some View {
@@ -168,49 +224,6 @@ struct AppsScreen: View {
         .buttonStyle(.bordered)
         .buttonBorderShape(.circle)
         .tint(.black)
-    }
-}
-
-struct QuickActionsModifier: ViewModifier {
-    let app: SelectedApp
-    @Binding var selection: SelectedApp?
-    
-    @State private var isPresented = false
-    @State private var isSettingsOpen = false
-    
-    @Environment(Settings.self) private var settings
-    
-    let tip = QuickActionsTip()
-    
-    func body(content: Content) -> some View {
-        content
-            #if os(iOS)
-            .onShakeGesture {
-                isPresented = true
-                tip.invalidate(reason: .actionPerformed)
-            }
-            #endif
-            .confirmationDialog("Quick Actions", isPresented: $isPresented, titleVisibility: .visible) {
-                Button("Settings") {
-                    isSettingsOpen = true
-                }
-                Button("Reset LiveView") {
-                    selection = .init(url: app.url, id: UUID())
-                }
-                Button("Disconnect", role: .destructive) {
-                    selection = nil
-                }
-                Button("Cancel", role: .cancel) {}
-            }
-            .sheet(isPresented: $isSettingsOpen) {
-                SettingsScreen()
-            }
-            .safeAreaInset(edge: .bottom) {
-                TipView(tip)
-                    .tipBackground(.ultraThinMaterial)
-                    .shadow(radius: 16)
-                    .padding()
-            }
     }
 }
 

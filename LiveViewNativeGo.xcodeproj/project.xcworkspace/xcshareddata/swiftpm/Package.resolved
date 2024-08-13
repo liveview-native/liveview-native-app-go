@@ -4,10 +4,10 @@
     {
       "identity" : "liveview-client-swiftui",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/liveview-native/liveview-client-swiftui/",
+      "location" : "https://github.com/liveview-native/liveview-client-swiftui",
       "state" : {
         "branch" : "main",
-        "revision" : "1f9bd5bf61cbce49cfce45022b7f44ad8bc48bc5"
+        "revision" : "b881168bafd31e9709c1cbb29c2e965903d7a053"
       }
     },
     {
