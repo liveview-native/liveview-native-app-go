@@ -2,7 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Scan a QR code to connect to a LiveView</string>
+    <key>com.apple.developer.parent-application-identifiers</key>
+    <array>
+        <string>$(AppIdentifierPrefix)com.dockyard.LiveViewNativeGo</string>
+    </array>
 </dict>
 </plist>

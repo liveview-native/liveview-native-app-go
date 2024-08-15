@@ -4,5 +4,12 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Scan a QR code to connect to a LiveView</string>
+	<key>NSAppClip</key>
+	<dict>
+		<key>NSAppClipRequestEphemeralUserNotification</key>
+		<false/>
+		<key>NSAppClipRequestLocationConfirmation</key>
+		<false/>
+	</dict>
 </dict>
 </plist>
