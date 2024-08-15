@@ -17,7 +17,7 @@
 		00242ED92C6E513000CC972C /* LiveViewNativeGoAppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00242ED82C6E513000CC972C /* LiveViewNativeGoAppClipApp.swift */; };
 		00242EDD2C6E513100CC972C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00242EDC2C6E513100CC972C /* Assets.xcassets */; };
 		00242EE02C6E513100CC972C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00242EDF2C6E513100CC972C /* Preview Assets.xcassets */; };
-		00242EE52C6E513100CC972C /* LiveViewNativeGoAppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 00242ED62C6E513000CC972C /* LiveViewNativeGoAppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		00242EE52C6E513100CC972C /* LiveViewNativeGoAppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 00242ED62C6E513000CC972C /* LiveViewNativeGoAppClip.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		00242EE92C6E515200CC972C /* AppsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C92802BB30FC600E553D4 /* AppsScreen.swift */; };
 		00242EEA2C6E515200CC972C /* QuickActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D562C6BAA02002B23FF /* QuickActionsModifier.swift */; };
 		00242EEB2C6E515200CC972C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C92722BB30EDD00E553D4 /* ContentView.swift */; };
@@ -417,6 +417,7 @@
 /* Begin PBXTargetDependency section */
 		00242EE42C6E513100CC972C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 00242ED52C6E513000CC972C /* LiveViewNativeGoAppClip */;
 			targetProxy = 00242EE32C6E513100CC972C /* PBXContainerItemProxy */;
 		};
@@ -572,7 +573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -615,7 +616,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
