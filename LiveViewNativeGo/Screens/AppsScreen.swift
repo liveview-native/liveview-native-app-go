@@ -145,7 +145,7 @@ struct AppsScreen: View {
             // display the selected app
             .fullScreenCover(item: $selection) { app in
                 app.makeLiveView(settings: settings, dynamicType: dynamicType)
-                    .modifier(QuickActionsModifier(app: self, selection: $selection))
+                    .modifier(QuickActionsModifier(app: app, selection: $selection))
             }
         #else
         VStack {
