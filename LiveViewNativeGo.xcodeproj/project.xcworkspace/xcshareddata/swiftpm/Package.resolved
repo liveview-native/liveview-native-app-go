@@ -4,10 +4,10 @@
     {
       "identity" : "liveview-client-swiftui",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/liveview-native/liveview-client-swiftui",
+      "location" : "https://github.com/liveview-native/liveview-client-swiftui/",
       "state" : {
         "branch" : "main",
-        "revision" : "b881168bafd31e9709c1cbb29c2e965903d7a053"
+        "revision" : "37de765fd59f92a2738f68dba90763de0e36162c"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveview-native/liveview-native-swiftui-charts",
       "state" : {
-        "branch" : "content-builder-live-context",
-        "revision" : "be9c96355682ca25467c0f3900e5640766b4d02a"
+        "revision" : "5da5694b8af61299d4e0d691cb8555966ea9f247",
+        "version" : "0.3.0-rc.4"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveview-native/liveview-native-swiftui-mapkit",
       "state" : {
-        "branch" : "content-builder-live-context",
-        "revision" : "21b9332e789196120a86bc1206424301349de72b"
+        "revision" : "5fca1762a651d630df01aeef8688e75cb545c896",
+        "version" : "0.3.0-rc.4"
       }
     },
     {

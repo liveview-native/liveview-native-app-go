@@ -17,6 +17,17 @@ struct LiveViewNativeGoApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     #endif
     
+    init() {
+        do {
+            #if DEBUG
+            try Tips.resetDatastore()
+            #endif
+            try Tips.configure()
+        } catch {
+            print("Error configuring tips: \(error)")
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -41,17 +52,6 @@ struct LiveViewNativeGoApp: App {
         }
         .environment(settings)
         #endif
-    }
-    
-    init() {
-        do {
-            #if DEBUG
-            try Tips.resetDatastore()
-            #endif
-            try Tips.configure()
-        } catch {
-            print("Error configuring tips: \(error)")
-        }
     }
 }
 
