@@ -150,7 +150,7 @@ struct AppsScreen: View {
             .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
                 guard selection == nil,
                       let webpageURL = activity.webpageURL,
-                      let components = URLComponents(url: webpageURL, resolvingAgainstBaseURL: false),
+                      let components = URLComponents(url: webpageURL, resolvingAgainstBaseURL: true),
                       let liveViewURL = components.queryItems?
                         .first(where: { $0.name == "liveview" })
                         .flatMap(\.value)

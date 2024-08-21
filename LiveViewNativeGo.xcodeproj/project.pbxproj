@@ -569,7 +569,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "0.3.0-rc.4";
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -612,7 +612,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "0.3.0-rc.4";
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -730,8 +730,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-client-swiftui/";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 0.3.0;
 			};
 		};
 		00C48D472C6559AA002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */ = {
@@ -739,7 +739,7 @@
 			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-mapkit";
 			requirement = {
 				kind = exactVersion;
-				version = "0.3.0-rc.4";
+				version = 0.3.0;
 			};
 		};
 		00C48D4A2C6559BF002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */ = {
@@ -747,7 +747,7 @@
 			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-charts";
 			requirement = {
 				kind = exactVersion;
-				version = "0.3.0-rc.4";
+				version = 0.3.0;
 			};
 		};
 		00C48D5B2C6BBA58002B23FF /* XCRemoteSwiftPackageReference "liveview-native-live-form" */ = {
@@ -755,7 +755,7 @@
 			repositoryURL = "https://github.com/liveview-native/liveview-native-live-form";
 			requirement = {
 				kind = exactVersion;
-				version = "0.3.0-rc.3";
+				version = 0.3.0;
 			};
 		};
 		00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */ = {
@@ -763,7 +763,7 @@
 			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-avkit";
 			requirement = {
 				kind = exactVersion;
-				version = "0.3.0-rc.3";
+				version = 0.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
