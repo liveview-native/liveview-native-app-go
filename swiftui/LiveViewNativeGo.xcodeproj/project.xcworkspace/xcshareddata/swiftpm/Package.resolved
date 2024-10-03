@@ -1,5 +1,5 @@
 {
-  "originHash" : "e08743673cc3da6be0f2ea262cf698d96a48c5f8edbb9f4742f2efe4e34cd07b",
+  "originHash" : "540c28b3d2a56261a1c056589dfe3161650d63764169c69a3bf3221b9624a9d3",
   "pins" : [
     {
       "identity" : "liveview-client-swiftui",
@@ -34,6 +34,24 @@
       "location" : "https://github.com/liveview-native/liveview-native-swiftui-avkit",
       "state" : {
         "revision" : "964c46d3a225d8822a196614e6317f7341445647",
+        "version" : "0.3.0"
+      }
+    },
+    {
+      "identity" : "liveview-native-swiftui-charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/liveview-native/liveview-native-swiftui-charts",
+      "state" : {
+        "revision" : "e5ffd6d3e55f677f12a976a1b3554f32a328ddf2",
+        "version" : "0.3.0"
+      }
+    },
+    {
+      "identity" : "liveview-native-swiftui-mapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/liveview-native/liveview-native-swiftui-mapkit",
+      "state" : {
+        "revision" : "5b4e8edfb00c77dda8ed53635c8414451f56bd9e",
         "version" : "0.3.0"
       }
     },
