@@ -14,7 +14,6 @@ import VisionKit
 /// A binding is updated with the recognized items,
 /// and an action performed when a scanned item is tapped.
 struct DataScannerView: UIViewControllerRepresentable {
-    var isActive: Bool = true
     @Binding var items: [RecognizedItem]
     
     var recognizedDataTypes: Set<DataScannerViewController.RecognizedDataType>
@@ -38,20 +37,12 @@ struct DataScannerView: UIViewControllerRepresentable {
             isHighlightingEnabled: isHighlightingEnabled
         )
         controller.delegate = context.coordinator
-        if isActive {
-            try? controller.startScanning()
-        } else {
-            controller.stopScanning()
-        }
+        try? controller.startScanning()
         return controller
     }
     
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
-        if isActive {
-            try? uiViewController.startScanning()
-        } else {
-            uiViewController.stopScanning()
-        }
+        try? uiViewController.startScanning()
     }
     
     func makeCoordinator() -> Coordinator {

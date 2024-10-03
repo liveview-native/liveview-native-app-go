@@ -46,6 +46,26 @@ import SwiftUI
         }
     }
     
+    var recentURLs: [URL] {
+        get {
+            access(keyPath: \.recentURLs)
+            return (UserDefaults.standard.array(forKey: "recentURLs") as? [String] ?? [])
+                .compactMap(URL.init)
+        }
+        set {
+            withMutation(keyPath: \.recentURLs) {
+                UserDefaults.standard.setValue(
+                    // remove duplicates
+                    newValue.reduce(into: [String]()) { partialResult, url in
+                        partialResult.removeAll(where: { $0 == url.absoluteString })
+                        partialResult.append(url.absoluteString)
+                    },
+                    forKey: "recentURLs"
+                )
+            }
+        }
+    }
+    
     enum _ColorScheme: Int {
         case system
         case light

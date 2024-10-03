@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "000C926C2BB30EDD00E553D4"
-               BuildableName = "LiveViewNativeGo.app"
-               BlueprintName = "LiveViewNativeGo"
+               BuildableName = "LVN Go.app"
+               BlueprintName = "LVN Go"
                ReferencedContainer = "container:LiveViewNativeGo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000C926C2BB30EDD00E553D4"
-            BuildableName = "LiveViewNativeGo.app"
-            BlueprintName = "LiveViewNativeGo"
+            BuildableName = "LVN Go.app"
+            BlueprintName = "LVN Go"
             ReferencedContainer = "container:LiveViewNativeGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000C926C2BB30EDD00E553D4"
-            BuildableName = "LiveViewNativeGo.app"
-            BlueprintName = "LiveViewNativeGo"
+            BuildableName = "LVN Go.app"
+            BlueprintName = "LVN Go"
             ReferencedContainer = "container:LiveViewNativeGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

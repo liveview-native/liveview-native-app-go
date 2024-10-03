@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 import VisionKit
 import LiveViewNative
 import LiveViewNativeLiveForm
@@ -56,32 +57,13 @@ struct QuickActionsTip: Tip {
     }
 }
 
-/// A tip on scanning LiveBook QR codes.
-struct QRConnectTip: Tip {
-    var title: Text {
-        Text("Connect to LiveBook")
-    }
-
-    var message: Text? {
-        Text("Scan the QR code in a LiveView smart cell to connect.")
-    }
-
-    var image: Image? {
-        Image(systemName: "qrcode.viewfinder")
-    }
-}
-
 /// The app scanning and rendering screen.
 struct AppsScreen: View {
     @State private var selection: SelectedApp?
     
-    @State private var selectCustomURL: Bool = false
+    @State private var showCodeScanner: Bool = false
     
     @AppStorage("customURL") private var inputURL: String = ""
-    
-    #if os(iOS)
-    @State private var items: [RecognizedItem] = []
-    #endif
     
     @Environment(Settings.self) private var settings
     
@@ -93,55 +75,112 @@ struct AppsScreen: View {
     
     var body: some View {
         #if os(iOS)
-        DataScannerView(
-            isActive: selection == nil,
-            items: $items.animation(.default),
-            recognizedDataTypes: [.barcode(symbologies: [.qr, .microQR])],
-            isHighlightingEnabled: true
-        ) { item in
-            switch item {
-            case let .barcode(code):
-                selection = code.payloadStringValue
-                    .flatMap({ URL(string: $0) })
-                    .flatMap({ .init(url: $0, id: UUID()) })
-            default:
-                print(item)
+        List {
+            Section {
+                if settings.recentURLs.isEmpty {
+                    Text("No recent apps connected.")
+                }
+                ForEach(settings.recentURLs.reversed(), id: \.self) { url in
+                    Button {
+                        selection = .init(url: url, id: UUID())
+                        settings.recentURLs += [url]
+                    } label: {
+                        Label {
+                            Text((url as NSURL).resourceSpecifier.flatMap({ String($0.dropFirst(2)) }) ?? url.absoluteString)
+                        } icon: {
+                            AsyncImage(url: url.replacing(path: "/apple-touch-icon.png")) { phase in
+                                switch phase {
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                case .failure:
+                                    AsyncImage(url: url.replacing(path: "/favicon.ico")) { phase in
+                                        switch phase {
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                        default:
+                                            Rectangle()
+                                                .fill(.quaternary)
+                                        }
+                                    }
+                                default:
+                                    Rectangle()
+                                        .fill(.quaternary)
+                                }
+                            }
+                            .frame(width: 30, height: 30)
+                            .clipShape(.rect(cornerRadius: 8, style: .continuous))
+                        }
+                    }
+                }
+            } header: {
+                HStack {
+                    Text("Recents")
+                    Spacer()
+                    Button("Clear") {
+                        settings.recentURLs = []
+                    }
+                    .controlSize(.mini)
+                }
             }
         }
-            .ignoresSafeArea()
-            .safeAreaInset(edge: .top) {
-                TipView(QRConnectTip())
-                    .tipBackground(.ultraThinMaterial)
-                    .shadow(radius: 16)
+            .safeAreaInset(edge: .bottom) {
+                VStack {
+                    Divider()
+                    VStack {
+                        Button {
+                            showCodeScanner = true
+                        } label: {
+                            Label("Scan QR Code", systemImage: "qrcode")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.extraLarge)
+                        .sheet(isPresented: $showCodeScanner) {
+                            NavigationStack {
+                                LiveViewCodeScanner { url in
+                                    showCodeScanner = false
+                                    selection = .init(url: url, id: UUID())
+                                    settings.recentURLs += [url]
+                                }
+                            }
+                        }
+                        
+                        HStack {
+                            VStack { Divider() }
+                            Text("OR")
+                                .font(.caption)
+                                .foregroundStyle(.separator)
+                            VStack { Divider() }
+                        }
+                        .padding(.vertical)
+                        
+                        HStack {
+                            TextField("Enter URL", text: $inputURL)
+                                .autocorrectionDisabled()
+                                .textInputAutocapitalization(.never)
+                                .keyboardType(.URL)
+                                .textFieldStyle(.roundedBorder)
+                            Button {
+                                guard let url = URL(string: appendingScheme(to: inputURL))
+                                else { return }
+                                selection = .init(url: url, id: UUID())
+                                settings.recentURLs += [url]
+                            } label: {
+                                Label("Launch", systemImage: "arrow.up.right.square.fill")
+                            }
+                            .tint(Color.accentColor)
+                            .disabled(inputURL.isEmpty)
+                        }
+                    }
                     .padding()
-            }
-            .overlay(alignment: .bottom) {
-                HStack {
-                    Spacer()
-                        .frame(maxWidth: .infinity)
-                    currentScanOverlay
-                        .frame(maxWidth: .infinity)
-                    customURLButton
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                    .buttonStyle(.bordered)
                 }
-                .padding()
+                .background(ignoresSafeAreaEdges: .bottom)
             }
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("LVN Go")
-            // custom URL form
-            .alert("Enter URL", isPresented: $selectCustomURL) {
-                TextField("URL", text: $inputURL)
-                    .autocorrectionDisabled()
-                    .textInputAutocapitalization(.never)
-                    .keyboardType(.URL)
-                Button("Cancel", role: .cancel) {}
-                Button("OK") {
-                    selection = URL(string: appendingScheme(to: inputURL))
-                        .flatMap { .init(url: $0, id: UUID()) }
-                }
-            }
+            .navigationBarTitleDisplayMode(.inline)
             // display the selected app
             .fullScreenCover(item: $selection) { app in
                 app.makeLiveView(settings: settings, dynamicType: dynamicType)
@@ -157,6 +196,7 @@ struct AppsScreen: View {
                         .flatMap(URL.init)
                 else { return }
                 self.selection = .init(url: liveViewURL, id: .init())
+                settings.recentURLs += [liveViewURL]
             }
         #else
         VStack {
@@ -192,52 +232,11 @@ struct AppsScreen: View {
     func appendingScheme(to inputURL: String) -> String {
         inputURL.starts(with: "http://") || inputURL.starts(with: "https://") ? inputURL : "http://\(inputURL)"
     }
-    
-    #if os(iOS)
-    @ViewBuilder
-    var currentScanOverlay: some View {
-        if case let .barcode(code) = items.last,
-           let payloadStringValue = code.payloadStringValue,
-           let url = URL(string: payloadStringValue)
-        {
-            Button {
-                selection = .init(url: url, id: UUID())
-            } label: {
-                Label {
-                    Text(url.host() ?? url.absoluteString)
-                        .font(.caption.monospaced())
-                } icon: {
-                    Image(systemName: "arrow.up.right.square.fill")
-                }
-                .foregroundStyle(.black)
-                .padding(2)
-                .fixedSize(horizontal: true, vertical: false)
-            }
-            .compositingGroup()
-            .shadow(radius: 5)
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.capsule)
-            .controlSize(.mini)
-            .tint(.yellow)
-        }
-    }
-    #endif
-    
-    @ViewBuilder
-    var customURLButton: some View {
-        Button {
-            selectCustomURL = true
-        } label: {
-            Image(systemName: "link.badge.plus")
-                .foregroundStyle(.white)
-                .imageScale(.large)
-        }
-        .buttonStyle(.bordered)
-        .buttonBorderShape(.circle)
-        .tint(.black)
-    }
 }
 
 #Preview {
-    AppsScreen()
+    NavigationStack {
+        AppsScreen()
+    }
+        .environment(Settings())
 }
