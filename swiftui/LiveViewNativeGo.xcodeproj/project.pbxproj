@@ -33,9 +33,11 @@
 		00242EF52C6E515200CC972C /* ConnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D542C656CAD002B23FF /* ConnectingView.swift */; };
 		00242EF82C6E516500CC972C /* LiveViewNativeAVKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EF72C6E516500CC972C /* LiveViewNativeAVKit */; };
 		00242EFA2C6E516500CC972C /* LiveViewNative in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EF92C6E516500CC972C /* LiveViewNative */; };
-		00242EFC2C6E516500CC972C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EFB2C6E516500CC972C /* LiveViewNativeMapKit */; };
-		00242EFE2C6E516500CC972C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EFD2C6E516500CC972C /* LiveViewNativeCharts */; };
 		00242F002C6E516500CC972C /* LiveViewNativeLiveForm in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EFF2C6E516500CC972C /* LiveViewNativeLiveForm */; };
+		0032557E2CAF2FFB0097904C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 0032557D2CAF2FFB0097904C /* LiveViewNativeCharts */; };
+		003255802CAF2FFE0097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0032557F2CAF2FFE0097904C /* LiveViewNativeMapKit */; };
+		003255822CAF30020097904C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 003255812CAF30020097904C /* LiveViewNativeCharts */; };
+		003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 003255832CAF30040097904C /* LiveViewNativeMapKit */; };
 		00ABCC452BED72B80039E1CE /* ShakeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC442BED72B80039E1CE /* ShakeGesture.swift */; };
 		00ABCC482BF395170039E1CE /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC472BF395170039E1CE /* DataScannerView.swift */; };
 		00C48D4F2C656C47002B23FF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D4E2C656C47002B23FF /* ErrorView.swift */; };
@@ -47,9 +49,11 @@
 		00C48D5D2C6BBA58002B23FF /* LiveViewNativeLiveForm in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D5C2C6BBA58002B23FF /* LiveViewNativeLiveForm */; };
 		00C48D602C6BBA60002B23FF /* LiveViewNativeAVKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D5F2C6BBA60002B23FF /* LiveViewNativeAVKit */; };
 		00C48D622C6BBA60002B23FF /* LiveViewNative in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D612C6BBA60002B23FF /* LiveViewNative */; };
-		00C48D642C6BBA60002B23FF /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D632C6BBA60002B23FF /* LiveViewNativeMapKit */; };
-		00C48D662C6BBA60002B23FF /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D652C6BBA60002B23FF /* LiveViewNativeCharts */; };
 		00CB963A2C62988300ADBF08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB96392C62988300ADBF08 /* Constants.swift */; };
+		00D674A32CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */; };
+		00D674A42CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */; };
+		00D674A62CAEF91A002E2838 /* URL+replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A52CAEF904002E2838 /* URL+replacing.swift */; };
+		00D674A72CAEF91A002E2838 /* URL+replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A52CAEF904002E2838 /* URL+replacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		000C926D2BB30EDD00E553D4 /* LiveViewNativeGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveViewNativeGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000C926D2BB30EDD00E553D4 /* LVN Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LVN Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		000C92702BB30EDD00E553D4 /* LiveViewNativeGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewNativeGoApp.swift; sourceTree = "<group>"; };
 		000C92722BB30EDD00E553D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		000C92742BB30EDF00E553D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		00C48D582C6BAA18002B23FF /* QuickActionsCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionsCommands.swift; sourceTree = "<group>"; };
 		00CB96392C62988300ADBF08 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		00CB96412C62BD3100ADBF08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewCodeScanner.swift; sourceTree = "<group>"; };
+		00D674A52CAEF904002E2838 /* URL+replacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+replacing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +115,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00C48D642C6BBA60002B23FF /* LiveViewNativeMapKit in Frameworks */,
+				003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */,
 				00C48D622C6BBA60002B23FF /* LiveViewNative in Frameworks */,
 				00C48D602C6BBA60002B23FF /* LiveViewNativeAVKit in Frameworks */,
 				00C48D5D2C6BBA58002B23FF /* LiveViewNativeLiveForm in Frameworks */,
-				00C48D662C6BBA60002B23FF /* LiveViewNativeCharts in Frameworks */,
+				003255822CAF30020097904C /* LiveViewNativeCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,11 +127,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00242EFC2C6E516500CC972C /* LiveViewNativeMapKit in Frameworks */,
+				003255802CAF2FFE0097904C /* LiveViewNativeMapKit in Frameworks */,
 				00242EFA2C6E516500CC972C /* LiveViewNative in Frameworks */,
 				00242EF82C6E516500CC972C /* LiveViewNativeAVKit in Frameworks */,
-				00242EFE2C6E516500CC972C /* LiveViewNativeCharts in Frameworks */,
 				00242F002C6E516500CC972C /* LiveViewNativeLiveForm in Frameworks */,
+				0032557E2CAF2FFB0097904C /* LiveViewNativeCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +151,7 @@
 		000C926E2BB30EDD00E553D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				000C926D2BB30EDD00E553D4 /* LiveViewNativeGo.app */,
+				000C926D2BB30EDD00E553D4 /* LVN Go.app */,
 				00242ED62C6E513000CC972C /* LiveViewNativeGoAppClip.app */,
 			);
 			name = Products;
@@ -179,6 +185,7 @@
 		000C927F2BB30FB000E553D4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */,
 				000C92802BB30FC600E553D4 /* AppsScreen.swift */,
 				000C92822BB3146800E553D4 /* SettingsScreen.swift */,
 			);
@@ -223,6 +230,7 @@
 		00ABCC432BED72AF0039E1CE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				00D674A52CAEF904002E2838 /* URL+replacing.swift */,
 				00C48D5A2C6BAAAE002B23FF /* QuickActions */,
 				00ABCC472BF395170039E1CE /* DataScannerView.swift */,
 				00ABCC442BED72B80039E1CE /* ShakeGesture.swift */,
@@ -254,9 +262,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		000C926C2BB30EDD00E553D4 /* LiveViewNativeGo */ = {
+		000C926C2BB30EDD00E553D4 /* LVN Go */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 000C927C2BB30EDF00E553D4 /* Build configuration list for PBXNativeTarget "LiveViewNativeGo" */;
+			buildConfigurationList = 000C927C2BB30EDF00E553D4 /* Build configuration list for PBXNativeTarget "LVN Go" */;
 			buildPhases = (
 				000C92692BB30EDD00E553D4 /* Sources */,
 				000C926A2BB30EDD00E553D4 /* Frameworks */,
@@ -268,16 +276,16 @@
 			dependencies = (
 				00242EE42C6E513100CC972C /* PBXTargetDependency */,
 			);
-			name = LiveViewNativeGo;
+			name = "LVN Go";
 			packageProductDependencies = (
 				00C48D5C2C6BBA58002B23FF /* LiveViewNativeLiveForm */,
 				00C48D5F2C6BBA60002B23FF /* LiveViewNativeAVKit */,
 				00C48D612C6BBA60002B23FF /* LiveViewNative */,
-				00C48D632C6BBA60002B23FF /* LiveViewNativeMapKit */,
-				00C48D652C6BBA60002B23FF /* LiveViewNativeCharts */,
+				003255812CAF30020097904C /* LiveViewNativeCharts */,
+				003255832CAF30040097904C /* LiveViewNativeMapKit */,
 			);
 			productName = LiveViewNativeGo;
-			productReference = 000C926D2BB30EDD00E553D4 /* LiveViewNativeGo.app */;
+			productReference = 000C926D2BB30EDD00E553D4 /* LVN Go.app */;
 			productType = "com.apple.product-type.application";
 		};
 		00242ED52C6E513000CC972C /* LiveViewNativeGoAppClip */ = {
@@ -296,9 +304,9 @@
 			packageProductDependencies = (
 				00242EF72C6E516500CC972C /* LiveViewNativeAVKit */,
 				00242EF92C6E516500CC972C /* LiveViewNative */,
-				00242EFB2C6E516500CC972C /* LiveViewNativeMapKit */,
-				00242EFD2C6E516500CC972C /* LiveViewNativeCharts */,
 				00242EFF2C6E516500CC972C /* LiveViewNativeLiveForm */,
+				0032557D2CAF2FFB0097904C /* LiveViewNativeCharts */,
+				0032557F2CAF2FFE0097904C /* LiveViewNativeMapKit */,
 			);
 			productName = LiveViewNativeGoAppClip;
 			productReference = 00242ED62C6E513000CC972C /* LiveViewNativeGoAppClip.app */;
@@ -334,15 +342,15 @@
 			packageReferences = (
 				00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */,
 				00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */,
-				00C48D472C6559AA002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */,
-				00C48D4A2C6559BF002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */,
 				00C48D5B2C6BBA58002B23FF /* XCRemoteSwiftPackageReference "liveview-native-live-form" */,
+				0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */,
+				0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */,
 			);
 			productRefGroup = 000C926E2BB30EDD00E553D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				000C926C2BB30EDD00E553D4 /* LiveViewNativeGo */,
+				000C926C2BB30EDD00E553D4 /* LVN Go */,
 				00242ED52C6E513000CC972C /* LiveViewNativeGoAppClip */,
 			);
 		};
@@ -375,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				000C92812BB30FC600E553D4 /* AppsScreen.swift in Sources */,
+				00D674A62CAEF91A002E2838 /* URL+replacing.swift in Sources */,
 				00C48D592C6BAA18002B23FF /* QuickActionsCommands.swift in Sources */,
 				000C92732BB30EDD00E553D4 /* ContentView.swift in Sources */,
 				00C48D552C656CAD002B23FF /* ConnectingView.swift in Sources */,
@@ -387,6 +396,7 @@
 				00C48D532C656C7B002B23FF /* ReconnectingView.swift in Sources */,
 				00C48D4F2C656C47002B23FF /* ErrorView.swift in Sources */,
 				00CB963A2C62988300ADBF08 /* Constants.swift in Sources */,
+				00D674A32CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */,
 				00C48D512C656C60002B23FF /* DisconnectedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00242ED92C6E513000CC972C /* LiveViewNativeGoAppClipApp.swift in Sources */,
+				00D674A72CAEF91A002E2838 /* URL+replacing.swift in Sources */,
 				00242EE92C6E515200CC972C /* AppsScreen.swift in Sources */,
 				00242EEA2C6E515200CC972C /* QuickActionsModifier.swift in Sources */,
 				00242EEB2C6E515200CC972C /* ContentView.swift in Sources */,
@@ -408,6 +419,7 @@
 				00242EF22C6E515200CC972C /* ReconnectingView.swift in Sources */,
 				00242EF32C6E515200CC972C /* Settings.swift in Sources */,
 				00242EF42C6E515200CC972C /* DataScannerView.swift in Sources */,
+				00D674A42CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */,
 				00242EF52C6E515200CC972C /* ConnectingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LiveViewNativeGo/LiveViewNativeGo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveViewNativeGo/Preview Content\"";
@@ -569,9 +582,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -588,6 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LiveViewNativeGo/LiveViewNativeGo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveViewNativeGo/Preview Content\"";
@@ -612,9 +627,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -648,7 +664,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -682,7 +698,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dockyard.LiveViewNativeGo.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -705,7 +721,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		000C927C2BB30EDF00E553D4 /* Build configuration list for PBXNativeTarget "LiveViewNativeGo" */ = {
+		000C927C2BB30EDF00E553D4 /* Build configuration list for PBXNativeTarget "LVN Go" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				000C927D2BB30EDF00E553D4 /* Debug */,
@@ -726,23 +742,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/liveview-native/liveview-client-swiftui/";
-			requirement = {
-				kind = exactVersion;
-				version = 0.3.0;
-			};
-		};
-		00C48D472C6559AA002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-mapkit";
-			requirement = {
-				kind = exactVersion;
-				version = 0.3.0;
-			};
-		};
-		00C48D4A2C6559BF002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */ = {
+		0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-charts";
 			requirement = {
@@ -750,12 +750,28 @@
 				version = 0.3.0;
 			};
 		};
+		0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-mapkit";
+			requirement = {
+				kind = exactVersion;
+				version = 0.3.0;
+			};
+		};
+		00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/liveview-native/liveview-client-swiftui";
+			requirement = {
+				kind = exactVersion;
+				version = 0.3.1;
+			};
+		};
 		00C48D5B2C6BBA58002B23FF /* XCRemoteSwiftPackageReference "liveview-native-live-form" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-native-live-form";
 			requirement = {
 				kind = exactVersion;
-				version = 0.3.0;
+				version = 0.3.1;
 			};
 		};
 		00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */ = {
@@ -779,20 +795,30 @@
 			package = 00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */;
 			productName = LiveViewNative;
 		};
-		00242EFB2C6E516500CC972C /* LiveViewNativeMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00C48D472C6559AA002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */;
-			productName = LiveViewNativeMapKit;
-		};
-		00242EFD2C6E516500CC972C /* LiveViewNativeCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00C48D4A2C6559BF002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */;
-			productName = LiveViewNativeCharts;
-		};
 		00242EFF2C6E516500CC972C /* LiveViewNativeLiveForm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00C48D5B2C6BBA58002B23FF /* XCRemoteSwiftPackageReference "liveview-native-live-form" */;
 			productName = LiveViewNativeLiveForm;
+		};
+		0032557D2CAF2FFB0097904C /* LiveViewNativeCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */;
+			productName = LiveViewNativeCharts;
+		};
+		0032557F2CAF2FFE0097904C /* LiveViewNativeMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */;
+			productName = LiveViewNativeMapKit;
+		};
+		003255812CAF30020097904C /* LiveViewNativeCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */;
+			productName = LiveViewNativeCharts;
+		};
+		003255832CAF30040097904C /* LiveViewNativeMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */;
+			productName = LiveViewNativeMapKit;
 		};
 		00C48D5C2C6BBA58002B23FF /* LiveViewNativeLiveForm */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -808,16 +834,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */;
 			productName = LiveViewNative;
-		};
-		00C48D632C6BBA60002B23FF /* LiveViewNativeMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00C48D472C6559AA002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */;
-			productName = LiveViewNativeMapKit;
-		};
-		00C48D652C6BBA60002B23FF /* LiveViewNativeCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00C48D4A2C6559BF002B23FF /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */;
-			productName = LiveViewNativeCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
