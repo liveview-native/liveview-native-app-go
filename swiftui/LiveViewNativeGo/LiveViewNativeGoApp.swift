@@ -12,6 +12,7 @@ import TipKit
 struct LiveViewNativeGoApp: App {
     @State private var settings = Settings()
     @Environment(\.dynamicTypeSize) private var dynamicType
+    @Environment(\.openWindow) private var openWindow
     
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -31,6 +32,15 @@ struct LiveViewNativeGoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            #if os(macOS)
+                .task {
+                    delegate.openWindow = openWindow
+                    delegate.settings = settings
+                }
+                .onChange(of: settings.recentURLs, initial: true) { _, newRecentURLs in
+                    delegate.updateDockMenu(newRecentURLs)
+                }
+            #endif
         }
         .environment(settings)
         .commands {
@@ -57,8 +67,48 @@ struct LiveViewNativeGoApp: App {
 
 #if os(macOS)
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var openWindow: OpenWindowAction!
+    weak var settings: Settings?
+    
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
+    }
+    
+    let dockMenu = NSMenu()
+    
+    func updateDockMenu(_ recentURLs: [URL]) {
+        dockMenu.removeAllItems()
+        dockMenu.addItem(.sectionHeader(title: "Recents"))
+        for url in recentURLs.reversed() {
+            let item = NSMenuItem(
+                title: (url as NSURL).resourceSpecifier.flatMap({ String($0.dropFirst(2)) }) ?? url.absoluteString,
+                action: #selector(openRecentApp(_:)),
+                keyEquivalent: ""
+            )
+            item.representedObject = url as NSURL
+            dockMenu.addItem(item)
+        }
+        dockMenu.addItem(.separator())
+        dockMenu.addItem(
+            withTitle: "Clear Recents",
+            action: #selector(clearRecentApps(_:)),
+            keyEquivalent: ""
+        )
+    }
+    
+    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
+        return dockMenu
+    }
+    
+    @objc func openRecentApp(_ sender: NSMenuItem) {
+        guard let url = sender.representedObject as? NSURL
+        else { return }
+        openWindow(value: SelectedApp(url: url as URL, id: UUID()))
+        settings?.recentURLs += [url as URL]
+    }
+    
+    @objc func clearRecentApps(_ sender: NSMenuItem) {
+        settings?.recentURLs = []
     }
 }
 #endif

@@ -208,6 +208,7 @@ struct AppsScreen: View {
                     guard let url = URL(string: appendingScheme(to: inputURL))
                     else { return }
                     openWindow(value: SelectedApp(url: url, id: .init()))
+                    settings.recentURLs += [url]
                 } label: {
                     Label("Launch", systemImage: "arrow.up.right.square.fill")
                         .frame(maxWidth: .infinity)
@@ -215,7 +216,9 @@ struct AppsScreen: View {
             }
             Divider()
             Button {
-                openWindow(value: SelectedApp(url: URL(string: "http://localhost:4000")!, id: .init()))
+                let url = URL(string: "http://localhost:4000")!
+                openWindow(value: SelectedApp(url: url, id: .init()))
+                settings.recentURLs += [url]
             } label: {
                 Label("Launch Local Host", systemImage: "network")
                     .frame(maxWidth: .infinity)
