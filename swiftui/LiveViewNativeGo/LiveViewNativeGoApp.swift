@@ -61,6 +61,9 @@ struct LiveViewNativeGoApp: App {
             SettingsScreen()
         }
         .environment(settings)
+        SwiftUI.Window(Text("Logs"), id: "logs") {
+            LogsScreen()
+        }
         #endif
     }
 }

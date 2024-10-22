@@ -14,6 +14,8 @@
 		000C92812BB30FC600E553D4 /* AppsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C92802BB30FC600E553D4 /* AppsScreen.swift */; };
 		000C92832BB3146800E553D4 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C92822BB3146800E553D4 /* SettingsScreen.swift */; };
 		000C92862BB3150F00E553D4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C92852BB3150F00E553D4 /* Settings.swift */; };
+		00232F112CC8286A0081DF3D /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00232F102CC828660081DF3D /* Logs.swift */; };
+		00232F122CC8286A0081DF3D /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00232F102CC828660081DF3D /* Logs.swift */; };
 		00242ED92C6E513000CC972C /* LiveViewNativeGoAppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00242ED82C6E513000CC972C /* LiveViewNativeGoAppClipApp.swift */; };
 		00242EDD2C6E513100CC972C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00242EDC2C6E513100CC972C /* Assets.xcassets */; };
 		00242EE02C6E513100CC972C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00242EDF2C6E513100CC972C /* Preview Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		00D674A42CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */; };
 		00D674A62CAEF91A002E2838 /* URL+replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A52CAEF904002E2838 /* URL+replacing.swift */; };
 		00D674A72CAEF91A002E2838 /* URL+replacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A52CAEF904002E2838 /* URL+replacing.swift */; };
+		00FC5E192CC82B410012361E /* LogsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC5E182CC82B3E0012361E /* LogsScreen.swift */; };
+		00FC5E1A2CC82B410012361E /* LogsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC5E182CC82B3E0012361E /* LogsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,7 @@
 		000C92802BB30FC600E553D4 /* AppsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsScreen.swift; sourceTree = "<group>"; };
 		000C92822BB3146800E553D4 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		000C92852BB3150F00E553D4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		00232F102CC828660081DF3D /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
 		00242ED62C6E513000CC972C /* LiveViewNativeGoAppClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveViewNativeGoAppClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00242ED82C6E513000CC972C /* LiveViewNativeGoAppClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewNativeGoAppClipApp.swift; sourceTree = "<group>"; };
 		00242EDC2C6E513100CC972C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		00CB96412C62BD3100ADBF08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewCodeScanner.swift; sourceTree = "<group>"; };
 		00D674A52CAEF904002E2838 /* URL+replacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+replacing.swift"; sourceTree = "<group>"; };
+		00FC5E182CC82B3E0012361E /* LogsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,7 @@
 		000C927F2BB30FB000E553D4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				00FC5E182CC82B3E0012361E /* LogsScreen.swift */,
 				00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */,
 				000C92802BB30FC600E553D4 /* AppsScreen.swift */,
 				000C92822BB3146800E553D4 /* SettingsScreen.swift */,
@@ -195,6 +202,7 @@
 		000C92842BB3150400E553D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				00232F102CC828660081DF3D /* Logs.swift */,
 				000C92852BB3150F00E553D4 /* Settings.swift */,
 			);
 			path = Model;
@@ -382,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00FC5E192CC82B410012361E /* LogsScreen.swift in Sources */,
 				000C92812BB30FC600E553D4 /* AppsScreen.swift in Sources */,
 				00D674A62CAEF91A002E2838 /* URL+replacing.swift in Sources */,
 				00C48D592C6BAA18002B23FF /* QuickActionsCommands.swift in Sources */,
@@ -397,6 +406,7 @@
 				00C48D4F2C656C47002B23FF /* ErrorView.swift in Sources */,
 				00CB963A2C62988300ADBF08 /* Constants.swift in Sources */,
 				00D674A32CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */,
+				00232F122CC8286A0081DF3D /* Logs.swift in Sources */,
 				00C48D512C656C60002B23FF /* DisconnectedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00FC5E1A2CC82B410012361E /* LogsScreen.swift in Sources */,
 				00242ED92C6E513000CC972C /* LiveViewNativeGoAppClipApp.swift in Sources */,
 				00D674A72CAEF91A002E2838 /* URL+replacing.swift in Sources */,
 				00242EE92C6E515200CC972C /* AppsScreen.swift in Sources */,
@@ -420,6 +431,7 @@
 				00242EF32C6E515200CC972C /* Settings.swift in Sources */,
 				00242EF42C6E515200CC972C /* DataScannerView.swift in Sources */,
 				00D674A42CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */,
+				00232F112CC8286A0081DF3D /* Logs.swift in Sources */,
 				00242EF52C6E515200CC972C /* ConnectingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,7 +571,7 @@
 				CODE_SIGN_ENTITLEMENTS = LiveViewNativeGo/LiveViewNativeGo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveViewNativeGo/Preview Content\"";
 				DEVELOPMENT_TEAM = 8YF596VCP4;
 				ENABLE_PREVIEWS = YES;
@@ -604,7 +616,7 @@
 				CODE_SIGN_ENTITLEMENTS = LiveViewNativeGo/LiveViewNativeGo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveViewNativeGo/Preview Content\"";
 				DEVELOPMENT_TEAM = 8YF596VCP4;
 				ENABLE_PREVIEWS = YES;

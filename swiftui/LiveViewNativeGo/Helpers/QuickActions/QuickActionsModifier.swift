@@ -14,8 +14,11 @@ struct QuickActionsModifier: ViewModifier {
     
     @State private var isPresented = false
     @State private var isSettingsOpen = false
+    @State private var isLogsOpen = false
     
     @Environment(Settings.self) private var settings
+    
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     let tip = QuickActionsTip()
     
@@ -27,20 +30,15 @@ struct QuickActionsModifier: ViewModifier {
                 tip.invalidate(reason: .actionPerformed)
             }
             #endif
-            .confirmationDialog("Quick Actions", isPresented: $isPresented, titleVisibility: .visible) {
-                Button("Settings") {
-                    isSettingsOpen = true
-                }
-                Button("Reset LiveView") {
-                    selection = .init(url: app.url, id: UUID())
-                }
-                Button("Disconnect", role: .destructive) {
-                    selection = nil
-                }
-                Button("Cancel", role: .cancel) {}
+            .quickActionsDialog(sizeClass: horizontalSizeClass ?? .regular, isPresented: $isPresented) {
+                actions
             }
             .sheet(isPresented: $isSettingsOpen) {
                 SettingsScreen()
+            }
+            .inspector(isPresented: $isLogsOpen) {
+                LogsScreen()
+                    .navigationTitle("Logs")
             }
             .safeAreaInset(edge: .bottom) {
                 TipView(tip)
@@ -48,5 +46,38 @@ struct QuickActionsModifier: ViewModifier {
                     .shadow(radius: 16)
                     .padding()
             }
+    }
+    
+    @ViewBuilder
+    var actions: some View {
+        Button("Settings") {
+            isSettingsOpen = true
+        }
+        Button("Logs") {
+            isLogsOpen = true
+        }
+        Button("Reset LiveView") {
+            selection = .init(url: app.url, id: UUID())
+        }
+        Button("Disconnect", role: .destructive) {
+            selection = nil
+        }
+        Button("Cancel", role: .cancel) {}
+    }
+}
+
+fileprivate extension View {
+    @ViewBuilder
+    func quickActionsDialog(sizeClass: UserInterfaceSizeClass, isPresented: Binding<Bool>, @ViewBuilder actions: () -> some View) -> some View {
+        switch sizeClass {
+        case .compact:
+            self.confirmationDialog("Quick Actions", isPresented: isPresented, titleVisibility: .visible) {
+                actions()
+            }
+        default:
+            self.alert("Quick Actions", isPresented: isPresented) {
+                actions()
+            }
+        }
     }
 }

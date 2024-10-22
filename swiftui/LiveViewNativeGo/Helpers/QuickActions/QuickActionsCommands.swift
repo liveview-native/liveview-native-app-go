@@ -21,6 +21,9 @@ struct QuickActionsCommands: Commands {
                     openWindow(value: SelectedApp(url: focusedApp.url, id: .init()))
                 }
                 .keyboardShortcut("r")
+                Button("Logs") {
+                    openWindow(id: "logs")
+                }
             }
         }
     }
