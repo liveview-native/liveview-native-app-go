@@ -30,9 +30,10 @@ struct LiveViewNativeGoApp: App {
     }
     
     var body: some Scene {
+        // Shared Windows
         WindowGroup {
             ContentView()
-            #if os(macOS)
+                #if os(macOS)
                 .task {
                     delegate.openWindow = openWindow
                     delegate.settings = settings
@@ -40,12 +41,17 @@ struct LiveViewNativeGoApp: App {
                 .onChange(of: settings.recentURLs, initial: true) { _, newRecentURLs in
                     delegate.updateDockMenu(newRecentURLs)
                 }
-            #endif
+                #endif
         }
         .environment(settings)
         .commands {
             CommandGroup(replacing: .newItem) {}
         }
+        #if os(visionOS)
+        .defaultSize(width: 600, height: 400)
+        #endif
+        
+        // macOS Windows
         #if os(macOS)
         WindowGroup(for: SelectedApp.self) { $app in
             if let app {
@@ -57,12 +63,39 @@ struct LiveViewNativeGoApp: App {
         .commands {
             QuickActionsCommands()
         }
+        
         SwiftUI.Settings {
             SettingsScreen()
         }
         .environment(settings)
+        
         SwiftUI.Window(Text("Logs"), id: "logs") {
             LogsScreen()
+        }
+        #endif
+        
+        // visionOS Windows
+        #if os(visionOS)
+        WindowGroup(for: SelectedApp.self) { $app in
+            if let app {
+                app.makeLiveView(settings: settings, dynamicType: dynamicType)
+                    .environment(settings)
+                    .focusedSceneValue(\.focusedApp, app)
+            }
+        }
+        .defaultWindowPlacement { content, context in
+            WindowPlacement(.leading(context.windows.first!))
+        }
+        
+        WindowGroup(id: "logs") {
+            NavigationStack {
+                LogsScreen()
+                    .navigationTitle("Logs")
+            }
+        }
+        .defaultSize(width: 600, height: 800)
+        .defaultWindowPlacement { content, context in
+            WindowPlacement(.trailing(context.windows.first!))
         }
         #endif
     }

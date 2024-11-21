@@ -69,7 +69,7 @@ struct AppsScreen: View {
     
     @Environment(\.dynamicTypeSize) private var dynamicType
     
-    #if os(macOS)
+    #if os(macOS) || os(visionOS)
     @Environment(\.openWindow) private var openWindow
     #endif
     
@@ -198,7 +198,7 @@ struct AppsScreen: View {
                 self.selection = .init(url: liveViewURL, id: .init())
                 settings.recentURLs += [liveViewURL]
             }
-        #else
+        #elseif os(macOS)
         VStack {
             VStack {
                 TextField("URL", text: $inputURL)
@@ -228,6 +228,78 @@ struct AppsScreen: View {
         .controlSize(.extraLarge)
         .buttonStyle(.borderedProminent)
         .padding()
+        .navigationTitle("LiveView Native Go")
+        #else
+        List {
+            Section {
+                if settings.recentURLs.isEmpty {
+                    Text("No recent apps connected.")
+                }
+                ForEach(settings.recentURLs.reversed(), id: \.self) { url in
+                    Button {
+                        openWindow(value: SelectedApp(url: url, id: .init()))
+                        settings.recentURLs += [url]
+                    } label: {
+                        Label {
+                            Text((url as NSURL).resourceSpecifier.flatMap({ String($0.dropFirst(2)) }) ?? url.absoluteString)
+                        } icon: {
+                            AsyncImage(url: url.replacing(path: "/apple-touch-icon.png")) { phase in
+                                switch phase {
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                case .failure:
+                                    AsyncImage(url: url.replacing(path: "/favicon.ico")) { phase in
+                                        switch phase {
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                        default:
+                                            Rectangle()
+                                                .fill(.quaternary)
+                                        }
+                                    }
+                                default:
+                                    Rectangle()
+                                        .fill(.quaternary)
+                                }
+                            }
+                            .frame(width: 30, height: 30)
+                            .clipShape(.rect(cornerRadius: 8, style: .continuous))
+                        }
+                    }
+                }
+            } header: {
+                HStack {
+                    Text("Recents")
+                    Spacer()
+                    Button("Clear") {
+                        settings.recentURLs = []
+                    }
+                    .controlSize(.mini)
+                }
+            }
+        }
+        .ornament(attachmentAnchor: .scene(.bottom)) {
+            HStack {
+                TextField("URL", text: $inputURL)
+                    .autocorrectionDisabled()
+                    .textFieldStyle(.roundedBorder)
+                    .frame(minWidth: 300, maxWidth: .infinity)
+                Button {
+                    guard let url = URL(string: appendingScheme(to: inputURL))
+                    else { return }
+                    openWindow(value: SelectedApp(url: url, id: .init()))
+                    settings.recentURLs += [url]
+                } label: {
+                    Label("Launch", systemImage: "arrow.up.right.square.fill")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonBorderShape(.roundedRectangle(radius: 10))
+            }
+            .padding(8)
+            .glassBackgroundEffect(in: .rect(cornerRadius: 16, style: .continuous))
+        }
         .navigationTitle("LiveView Native Go")
         #endif
     }

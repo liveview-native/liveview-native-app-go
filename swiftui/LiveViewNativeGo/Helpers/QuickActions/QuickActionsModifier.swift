@@ -29,16 +29,16 @@ struct QuickActionsModifier: ViewModifier {
                 isPresented = true
                 tip.invalidate(reason: .actionPerformed)
             }
+            .inspector(isPresented: $isLogsOpen) {
+                LogsScreen()
+                    .navigationTitle("Logs")
+            }
             #endif
             .quickActionsDialog(sizeClass: horizontalSizeClass ?? .regular, isPresented: $isPresented) {
                 actions
             }
             .sheet(isPresented: $isSettingsOpen) {
                 SettingsScreen()
-            }
-            .inspector(isPresented: $isLogsOpen) {
-                LogsScreen()
-                    .navigationTitle("Logs")
             }
             .safeAreaInset(edge: .bottom) {
                 TipView(tip)
