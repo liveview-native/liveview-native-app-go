@@ -7,12 +7,16 @@
 
 import SwiftUI
 import Foundation
+#if os(iOS)
 import VisionKit
+#endif
 import LiveViewNative
 import LiveViewNativeLiveForm
 import LiveViewNativeAVKit
 import LiveViewNativeCharts
+#if !os(tvOS)
 import LiveViewNativeMapKit
+#endif
 import TipKit
 
 /// The current app to display, with a unique ID for each instance of this app launched.
@@ -22,7 +26,23 @@ struct SelectedApp: Identifiable, Hashable, Codable {
     
     @ViewBuilder
     func makeLiveView(settings: Settings, dynamicType: DynamicTypeSize) -> some View {
-        #LiveView(
+        #if os(tvOS)
+        let view: AnyView = #LiveView(
+            url,
+            addons: [.liveForm, .avKit, .charts]
+        ) {
+            ConnectingView(url: url)
+        } disconnected: {
+            DisconnectedView()
+        } reconnecting: { content, isReconnecting in
+            ReconnectingView(isReconnecting: isReconnecting) {
+                content
+            }
+        } error: { error in
+            ErrorView(error: error)
+        }
+        #else
+        let view: AnyView = #LiveView(
             url,
             addons: [.liveForm, .avKit, .charts, .mapKit]
         ) {
@@ -36,6 +56,9 @@ struct SelectedApp: Identifiable, Hashable, Codable {
         } error: { error in
             ErrorView(error: error)
         }
+        #endif
+        
+        view
         .preferredColorScheme(settings.colorScheme)
         .dynamicTypeSize(settings.dynamicTypeEnabled ? settings.dynamicType : dynamicType)
         .environment(settings)
@@ -229,7 +252,7 @@ struct AppsScreen: View {
         .buttonStyle(.borderedProminent)
         .padding()
         .navigationTitle("LiveView Native Go")
-        #else
+        #elseif os(visionOS)
         List {
             Section {
                 if settings.recentURLs.isEmpty {
@@ -301,6 +324,77 @@ struct AppsScreen: View {
             .glassBackgroundEffect(in: .rect(cornerRadius: 16, style: .continuous))
         }
         .navigationTitle("LiveView Native Go")
+        #else
+        Group {
+            if let app = selection {
+                app.makeLiveView(settings: settings, dynamicType: dynamicType)
+                    .modifier(QuickActionsModifier(app: app, selection: $selection))
+                    .onExitCommand {
+                        selection = nil
+                    }
+            } else {
+                VStack(alignment: .leading) {
+                    Text("LiveView Native Go")
+                        .font(.title)
+                    List {
+                        Section {
+                            if settings.recentURLs.isEmpty {
+                                Text("No recent apps connected.")
+                            }
+                            ForEach(settings.recentURLs.reversed(), id: \.self) { url in
+                                Button {
+                                    selection = .init(url: url, id: UUID())
+                                    settings.recentURLs += [url]
+                                } label: {
+                                    Label {
+                                        Text((url as NSURL).resourceSpecifier.flatMap({ String($0.dropFirst(2)) }) ?? url.absoluteString)
+                                    } icon: {
+                                        AsyncImage(url: url.replacing(path: "/apple-touch-icon.png")) { phase in
+                                            switch phase {
+                                            case .success(let image):
+                                                image
+                                                    .resizable()
+                                            case .failure:
+                                                AsyncImage(url: url.replacing(path: "/favicon.ico")) { phase in
+                                                    switch phase {
+                                                    case .success(let image):
+                                                        image
+                                                            .resizable()
+                                                    default:
+                                                        Rectangle()
+                                                            .fill(.quaternary)
+                                                    }
+                                                }
+                                            default:
+                                                Rectangle()
+                                                    .fill(.quaternary)
+                                            }
+                                        }
+                                        .frame(width: 30, height: 30)
+                                        .clipShape(.rect(cornerRadius: 8, style: .continuous))
+                                    }
+                                }
+                            }
+                        } header: {
+                            HStack {
+                                Text("Recents")
+                                Spacer()
+                                Button("Clear") {
+                                    settings.recentURLs = []
+                                }
+                            }
+                        }
+                    }
+                    .searchable(text: $inputURL, prompt: "URL")
+                    .onSubmit(of: .search) {
+                        guard let url = URL(string: appendingScheme(to: inputURL))
+                        else { return }
+                        selection = .init(url: url, id: .init())
+                        settings.recentURLs += [url]
+                    }
+                }
+            }
+        }
         #endif
     }
     

@@ -5,6 +5,7 @@
 //  Created by Carson Katri on 8/13/24.
 //
 
+#if !os(tvOS)
 import SwiftUI
 
 struct QuickActionsCommands: Commands {
@@ -39,3 +40,4 @@ extension FocusedValues {
         typealias Value = SelectedApp
     }
 }
+#endif

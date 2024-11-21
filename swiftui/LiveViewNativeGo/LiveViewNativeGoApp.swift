@@ -12,7 +12,10 @@ import TipKit
 struct LiveViewNativeGoApp: App {
     @State private var settings = Settings()
     @Environment(\.dynamicTypeSize) private var dynamicType
+    
+    #if os(macOS) || os(visionOS)
     @Environment(\.openWindow) private var openWindow
+    #endif
     
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -44,9 +47,11 @@ struct LiveViewNativeGoApp: App {
                 #endif
         }
         .environment(settings)
+        #if os(macOS)
         .commands {
             CommandGroup(replacing: .newItem) {}
         }
+        #endif
         #if os(visionOS)
         .defaultSize(width: 600, height: 400)
         #endif

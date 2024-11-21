@@ -16,6 +16,26 @@ struct ContentView: View {
     #endif
     
     var body: some View {
+        #if os(tvOS)
+        TabView {
+            Tab("Apps", systemImage: "square.on.square") {
+                NavigationStack {
+                    AppsScreen()
+                }
+            }
+            Tab("Settings", systemImage: "gear") {
+                NavigationStack {
+                    SettingsScreen()
+                }
+            }
+            Tab("Logs", systemImage: "scroll") {
+                NavigationStack {
+                    LogsScreen()
+                }
+            }
+        }
+        .tabViewStyle(.sidebarAdaptable)
+        #else
         NavigationStack {
             AppsScreen()
                 #if os(iOS)
@@ -33,6 +53,7 @@ struct ContentView: View {
                 }
                 #endif
         }
+        #endif
     }
     
     @ViewBuilder

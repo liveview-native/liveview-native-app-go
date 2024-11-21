@@ -38,7 +38,7 @@
 		0032557E2CAF2FFB0097904C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 0032557D2CAF2FFB0097904C /* LiveViewNativeCharts */; };
 		003255802CAF2FFE0097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0032557F2CAF2FFE0097904C /* LiveViewNativeMapKit */; };
 		003255822CAF30020097904C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 003255812CAF30020097904C /* LiveViewNativeCharts */; };
-		003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 003255832CAF30040097904C /* LiveViewNativeMapKit */; };
+		003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, xros, ); productRef = 003255832CAF30040097904C /* LiveViewNativeMapKit */; };
 		00336C782CEF89400038B915 /* LiveViewNative in Frameworks */ = {isa = PBXBuildFile; productRef = 00336C772CEF89400038B915 /* LiveViewNative */; };
 		00ABCC452BED72B80039E1CE /* ShakeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC442BED72B80039E1CE /* ShakeGesture.swift */; };
 		00ABCC482BF395170039E1CE /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC472BF395170039E1CE /* DataScannerView.swift */; };
@@ -602,7 +602,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,7";
-				TVOS_DEPLOYMENT_TARGET = 17.6;
+				TVOS_DEPLOYMENT_TARGET = 18.0;
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
@@ -650,7 +650,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,7";
-				TVOS_DEPLOYMENT_TARGET = 17.6;
+				TVOS_DEPLOYMENT_TARGET = 18.0;
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;

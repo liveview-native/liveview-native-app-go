@@ -33,18 +33,18 @@ struct QuickActionsModifier: ViewModifier {
                 LogsScreen()
                     .navigationTitle("Logs")
             }
+            .safeAreaInset(edge: .bottom) {
+                TipView(tip)
+                    .tipBackground(.ultraThinMaterial)
+                    .shadow(radius: 16)
+                    .padding()
+            }
             #endif
             .quickActionsDialog(sizeClass: horizontalSizeClass ?? .regular, isPresented: $isPresented) {
                 actions
             }
             .sheet(isPresented: $isSettingsOpen) {
                 SettingsScreen()
-            }
-            .safeAreaInset(edge: .bottom) {
-                TipView(tip)
-                    .tipBackground(.ultraThinMaterial)
-                    .shadow(radius: 16)
-                    .padding()
             }
     }
     
