@@ -41,8 +41,8 @@ struct LiveViewNativeGoApp: App {
                     delegate.openWindow = openWindow
                     delegate.settings = settings
                 }
-                .onChange(of: settings.recentURLs, initial: true) { _, newRecentURLs in
-                    delegate.updateDockMenu(newRecentURLs)
+                .onChange(of: settings.recentApps, initial: true) { _, newRecentApps in
+                    delegate.updateDockMenu(newRecentApps)
                 }
                 #endif
         }
@@ -81,15 +81,32 @@ struct LiveViewNativeGoApp: App {
         
         // visionOS Windows
         #if os(visionOS)
-        WindowGroup(for: SelectedApp.self) { $app in
+        WindowGroup(id: SelectedApp.LaunchStyle.plain.rawValue, for: SelectedApp.self) { $app in
             if let app {
                 app.makeLiveView(settings: settings, dynamicType: dynamicType)
                     .environment(settings)
-                    .focusedSceneValue(\.focusedApp, app)
             }
         }
         .defaultWindowPlacement { content, context in
             WindowPlacement(.leading(context.windows.first!))
+        }
+        
+        WindowGroup(id: SelectedApp.LaunchStyle.volumetric.rawValue, for: SelectedApp.self) { $app in
+            if let app {
+                app.makeLiveView(settings: settings, dynamicType: dynamicType)
+                    .environment(settings)
+            }
+        }
+        .windowStyle(.volumetric)
+        .defaultWindowPlacement { content, context in
+            WindowPlacement(.leading(context.windows.first!))
+        }
+        
+        ImmersiveSpace(id: SelectedApp.LaunchStyle.immersiveSpace.rawValue, for: SelectedApp.self) { $app in
+            if let app {
+                app.makeLiveView(settings: settings, dynamicType: dynamicType)
+                    .environment(settings)
+            }
         }
         
         WindowGroup(id: "logs") {
@@ -117,16 +134,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let dockMenu = NSMenu()
     
-    func updateDockMenu(_ recentURLs: [URL]) {
+    func updateDockMenu(_ recentApps: [SelectedApp]) {
         dockMenu.removeAllItems()
         dockMenu.addItem(.sectionHeader(title: "Recents"))
-        for url in recentURLs.reversed() {
+        for app in recentApps.reversed() {
             let item = NSMenuItem(
-                title: (url as NSURL).resourceSpecifier.flatMap({ String($0.dropFirst(2)) }) ?? url.absoluteString,
+                title: (app.url as NSURL).resourceSpecifier.flatMap({ String($0.dropFirst(2)) }) ?? app.url.absoluteString,
                 action: #selector(openRecentApp(_:)),
                 keyEquivalent: ""
             )
-            item.representedObject = url as NSURL
+            item.representedObject = app.url as NSURL
             dockMenu.addItem(item)
         }
         dockMenu.addItem(.separator())
@@ -144,12 +161,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func openRecentApp(_ sender: NSMenuItem) {
         guard let url = sender.representedObject as? NSURL
         else { return }
-        openWindow(value: SelectedApp(url: url as URL, id: UUID()))
-        settings?.recentURLs += [url as URL]
+        let app = SelectedApp(url: url as URL, id: UUID())
+        openWindow(value: app)
+        settings?.recentApps += [app]
     }
     
     @objc func clearRecentApps(_ sender: NSMenuItem) {
-        settings?.recentURLs = []
+        settings?.recentApps = []
     }
 }
 #endif

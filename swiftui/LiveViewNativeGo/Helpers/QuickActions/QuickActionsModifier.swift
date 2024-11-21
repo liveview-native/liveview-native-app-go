@@ -57,7 +57,7 @@ struct QuickActionsModifier: ViewModifier {
             isLogsOpen = true
         }
         Button("Reset LiveView") {
-            selection = .init(url: app.url, id: UUID())
+            selection = app.withUniqueID()
         }
         Button("Disconnect", role: .destructive) {
             selection = nil

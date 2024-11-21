@@ -5,7 +5,7 @@
 //  Created by Carson Katri on 8/13/24.
 //
 
-#if !os(tvOS)
+#if !os(tvOS) && !os(visionOS)
 import SwiftUI
 
 struct QuickActionsCommands: Commands {
@@ -19,7 +19,7 @@ struct QuickActionsCommands: Commands {
             CommandMenu("LiveView") {
                 Button("Reset...") {
                     dismissWindow(value: focusedApp)
-                    openWindow(value: SelectedApp(url: focusedApp.url, id: .init()))
+                    openWindow(value: SelectedApp(url: focusedApp.url, id: UUID()))
                 }
                 .keyboardShortcut("r")
                 Button("Logs") {

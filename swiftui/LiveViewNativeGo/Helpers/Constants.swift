@@ -27,4 +27,8 @@ extension URL {
     static var mapKit: Self {
         URL(string: "https://github.com/liveview-native/liveview-native-swiftui-mapkit")!
     }
+    
+    static var realityKit: Self {
+        URL(string: "https://github.com/liveview-native/liveview-native-swiftui-realitykit")!
+    }
 }

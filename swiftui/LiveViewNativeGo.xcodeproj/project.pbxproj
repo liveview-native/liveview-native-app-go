@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,7 @@
 		003255822CAF30020097904C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 003255812CAF30020097904C /* LiveViewNativeCharts */; };
 		003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, xros, ); productRef = 003255832CAF30040097904C /* LiveViewNativeMapKit */; };
 		00336C782CEF89400038B915 /* LiveViewNative in Frameworks */ = {isa = PBXBuildFile; productRef = 00336C772CEF89400038B915 /* LiveViewNative */; };
+		00336C7E2CEFCE6B0038B915 /* LiveViewNativeRealityKit in Frameworks */ = {isa = PBXBuildFile; platformFilters = (xros, ); productRef = 00336C7D2CEFCE6B0038B915 /* LiveViewNativeRealityKit */; };
 		00ABCC452BED72B80039E1CE /* ShakeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC442BED72B80039E1CE /* ShakeGesture.swift */; };
 		00ABCC482BF395170039E1CE /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC472BF395170039E1CE /* DataScannerView.swift */; };
 		00C48D4F2C656C47002B23FF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D4E2C656C47002B23FF /* ErrorView.swift */; };
@@ -122,6 +123,7 @@
 			files = (
 				003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */,
 				00336C782CEF89400038B915 /* LiveViewNative in Frameworks */,
+				00336C7E2CEFCE6B0038B915 /* LiveViewNativeRealityKit in Frameworks */,
 				00C48D602C6BBA60002B23FF /* LiveViewNativeAVKit in Frameworks */,
 				00C48D5D2C6BBA58002B23FF /* LiveViewNativeLiveForm in Frameworks */,
 				003255822CAF30020097904C /* LiveViewNativeCharts in Frameworks */,
@@ -289,6 +291,7 @@
 				003255812CAF30020097904C /* LiveViewNativeCharts */,
 				003255832CAF30040097904C /* LiveViewNativeMapKit */,
 				00336C772CEF89400038B915 /* LiveViewNative */,
+				00336C7D2CEFCE6B0038B915 /* LiveViewNativeRealityKit */,
 			);
 			productName = LiveViewNativeGo;
 			productReference = 000C926D2BB30EDD00E553D4 /* LVN Go.app */;
@@ -350,6 +353,7 @@
 				0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */,
 				0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */,
 				00336C762CEF89330038B915 /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */,
+				00336C7C2CEFCE6B0038B915 /* XCLocalSwiftPackageReference "../../../VisionDemos/LiveVoxels/Packages/Voxels" */,
 			);
 			productRefGroup = 000C926E2BB30EDD00E553D4 /* Products */;
 			projectDirPath = "";
@@ -756,6 +760,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		00336C7C2CEFCE6B0038B915 /* XCLocalSwiftPackageReference "../../../VisionDemos/LiveVoxels/Packages/Voxels" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../VisionDemos/LiveVoxels/Packages/Voxels;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -834,6 +845,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 00336C762CEF89330038B915 /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */;
 			productName = LiveViewNative;
+		};
+		00336C7D2CEFCE6B0038B915 /* LiveViewNativeRealityKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LiveViewNativeRealityKit;
 		};
 		00C48D5C2C6BBA58002B23FF /* LiveViewNativeLiveForm */ = {
 			isa = XCSwiftPackageProductDependency;
