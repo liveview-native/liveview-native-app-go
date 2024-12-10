@@ -85,6 +85,7 @@ struct LiveViewNativeGoApp: App {
             if let app {
                 app.makeLiveView(settings: settings, dynamicType: dynamicType)
                     .environment(settings)
+                    .handlesExternalEvents(preferring: [], allowing: [])
             }
         }
         .defaultWindowPlacement { content, context in
@@ -95,6 +96,7 @@ struct LiveViewNativeGoApp: App {
             if let app {
                 app.makeLiveView(settings: settings, dynamicType: dynamicType)
                     .environment(settings)
+                    .handlesExternalEvents(preferring: [], allowing: [])
             }
         }
         .windowStyle(.volumetric)
@@ -114,6 +116,7 @@ struct LiveViewNativeGoApp: App {
                 LogsScreen()
                     .navigationTitle("Logs")
             }
+            .handlesExternalEvents(preferring: [], allowing: [])
         }
         .defaultSize(width: 600, height: 800)
         .defaultWindowPlacement { content, context in

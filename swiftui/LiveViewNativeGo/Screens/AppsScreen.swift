@@ -423,8 +423,7 @@ struct AppsScreen: View {
                     }
             } else {
                 VStack(alignment: .leading) {
-                    Text("LiveView Native Go")
-                        .font(.title)
+                    Text("") // this makes sure the URL field is not covered by the sidebar.
                     List {
                         Section {
                             if settings.recentApps.isEmpty {
