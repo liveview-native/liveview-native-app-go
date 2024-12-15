@@ -1,0 +1,9 @@
+[submodule "liveview-native-live-form"]
+	path = liveview-native-live-form
+	url = git@github.com:liveview-native/liveview-native-live-form.git
+[submodule "liveview-native-core"]
+	path = liveview-native-core
+	url = git@github.com:liveview-native/liveview-native-core.git
+[submodule "liveview-client-swiftui"]
+	path = liveview-client-swiftui
+	url = git@github.com:liveview-native/liveview-client-swiftui.git

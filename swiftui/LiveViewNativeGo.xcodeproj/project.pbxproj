@@ -114,6 +114,9 @@
 		00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewCodeScanner.swift; sourceTree = "<group>"; };
 		00D674A52CAEF904002E2838 /* URL+replacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+replacing.swift"; sourceTree = "<group>"; };
 		00FC5E182CC82B3E0012361E /* LogsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsScreen.swift; sourceTree = "<group>"; };
+		1C42FC942D0ECDAC005B5761 /* liveview-native-live-form */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "liveview-native-live-form"; path = "../liveview-native-live-form"; sourceTree = SOURCE_ROOT; };
+		1C42FC952D0ECDC4005B5761 /* liveview-client-swiftui */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "liveview-client-swiftui"; path = "../liveview-client-swiftui"; sourceTree = SOURCE_ROOT; };
+		1C42FC962D0ECDEF005B5761 /* liveview-native-core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "liveview-native-core"; path = "../liveview-native-core"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,9 @@
 		000C92642BB30EDD00E553D4 = {
 			isa = PBXGroup;
 			children = (
+				1C42FC962D0ECDEF005B5761 /* liveview-native-core */,
+				1C42FC952D0ECDC4005B5761 /* liveview-client-swiftui */,
+				1C42FC942D0ECDAC005B5761 /* liveview-native-live-form */,
 				000C926F2BB30EDD00E553D4 /* LiveViewNativeGo */,
 				00242ED72C6E513000CC972C /* LiveViewNativeGoAppClip */,
 				000C926E2BB30EDD00E553D4 /* Products */,
