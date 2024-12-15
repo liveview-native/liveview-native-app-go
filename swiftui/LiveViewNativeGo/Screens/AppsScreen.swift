@@ -19,12 +19,13 @@ import TipKit
 struct SelectedApp: Identifiable, Hashable, Codable {
     let url: URL
     let id: UUID
-    
+   
+    @MainActor
     @ViewBuilder
     func makeLiveView(settings: Settings, dynamicType: DynamicTypeSize) -> some View {
         #LiveView(
             url,
-            addons: [.liveForm, .avKit, .charts, .mapKit]
+            addons: [.liveForm]
         ) {
             ConnectingView(url: url)
         } disconnected: {

@@ -33,13 +33,8 @@
 		00242EF32C6E515200CC972C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C92852BB3150F00E553D4 /* Settings.swift */; };
 		00242EF42C6E515200CC972C /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC472BF395170039E1CE /* DataScannerView.swift */; };
 		00242EF52C6E515200CC972C /* ConnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D542C656CAD002B23FF /* ConnectingView.swift */; };
-		00242EF82C6E516500CC972C /* LiveViewNativeAVKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EF72C6E516500CC972C /* LiveViewNativeAVKit */; };
 		00242EFA2C6E516500CC972C /* LiveViewNative in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EF92C6E516500CC972C /* LiveViewNative */; };
 		00242F002C6E516500CC972C /* LiveViewNativeLiveForm in Frameworks */ = {isa = PBXBuildFile; productRef = 00242EFF2C6E516500CC972C /* LiveViewNativeLiveForm */; };
-		0032557E2CAF2FFB0097904C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 0032557D2CAF2FFB0097904C /* LiveViewNativeCharts */; };
-		003255802CAF2FFE0097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0032557F2CAF2FFE0097904C /* LiveViewNativeMapKit */; };
-		003255822CAF30020097904C /* LiveViewNativeCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 003255812CAF30020097904C /* LiveViewNativeCharts */; };
-		003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 003255832CAF30040097904C /* LiveViewNativeMapKit */; };
 		00ABCC452BED72B80039E1CE /* ShakeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC442BED72B80039E1CE /* ShakeGesture.swift */; };
 		00ABCC482BF395170039E1CE /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCC472BF395170039E1CE /* DataScannerView.swift */; };
 		00C48D4F2C656C47002B23FF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D4E2C656C47002B23FF /* ErrorView.swift */; };
@@ -49,7 +44,6 @@
 		00C48D572C6BAA02002B23FF /* QuickActionsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D562C6BAA02002B23FF /* QuickActionsModifier.swift */; };
 		00C48D592C6BAA18002B23FF /* QuickActionsCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48D582C6BAA18002B23FF /* QuickActionsCommands.swift */; };
 		00C48D5D2C6BBA58002B23FF /* LiveViewNativeLiveForm in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D5C2C6BBA58002B23FF /* LiveViewNativeLiveForm */; };
-		00C48D602C6BBA60002B23FF /* LiveViewNativeAVKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D5F2C6BBA60002B23FF /* LiveViewNativeAVKit */; };
 		00C48D622C6BBA60002B23FF /* LiveViewNative in Frameworks */ = {isa = PBXBuildFile; productRef = 00C48D612C6BBA60002B23FF /* LiveViewNative */; };
 		00CB963A2C62988300ADBF08 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB96392C62988300ADBF08 /* Constants.swift */; };
 		00D674A32CAEE29F002E2838 /* LiveViewCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D674A22CAEE291002E2838 /* LiveViewCodeScanner.swift */; };
@@ -124,11 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				003255842CAF30040097904C /* LiveViewNativeMapKit in Frameworks */,
 				00C48D622C6BBA60002B23FF /* LiveViewNative in Frameworks */,
-				00C48D602C6BBA60002B23FF /* LiveViewNativeAVKit in Frameworks */,
 				00C48D5D2C6BBA58002B23FF /* LiveViewNativeLiveForm in Frameworks */,
-				003255822CAF30020097904C /* LiveViewNativeCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,11 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				003255802CAF2FFE0097904C /* LiveViewNativeMapKit in Frameworks */,
 				00242EFA2C6E516500CC972C /* LiveViewNative in Frameworks */,
-				00242EF82C6E516500CC972C /* LiveViewNativeAVKit in Frameworks */,
 				00242F002C6E516500CC972C /* LiveViewNativeLiveForm in Frameworks */,
-				0032557E2CAF2FFB0097904C /* LiveViewNativeCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,10 +281,7 @@
 			name = "LVN Go";
 			packageProductDependencies = (
 				00C48D5C2C6BBA58002B23FF /* LiveViewNativeLiveForm */,
-				00C48D5F2C6BBA60002B23FF /* LiveViewNativeAVKit */,
 				00C48D612C6BBA60002B23FF /* LiveViewNative */,
-				003255812CAF30020097904C /* LiveViewNativeCharts */,
-				003255832CAF30040097904C /* LiveViewNativeMapKit */,
 			);
 			productName = LiveViewNativeGo;
 			productReference = 000C926D2BB30EDD00E553D4 /* LVN Go.app */;
@@ -316,11 +301,8 @@
 			);
 			name = LiveViewNativeGoAppClip;
 			packageProductDependencies = (
-				00242EF72C6E516500CC972C /* LiveViewNativeAVKit */,
 				00242EF92C6E516500CC972C /* LiveViewNative */,
 				00242EFF2C6E516500CC972C /* LiveViewNativeLiveForm */,
-				0032557D2CAF2FFB0097904C /* LiveViewNativeCharts */,
-				0032557F2CAF2FFE0097904C /* LiveViewNativeMapKit */,
 			);
 			productName = LiveViewNativeGoAppClip;
 			productReference = 00242ED62C6E513000CC972C /* LiveViewNativeGoAppClip.app */;
@@ -354,11 +336,8 @@
 			);
 			mainGroup = 000C92642BB30EDD00E553D4;
 			packageReferences = (
-				00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */,
 				00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */,
 				00C48D5B2C6BBA58002B23FF /* XCRemoteSwiftPackageReference "liveview-native-live-form" */,
-				0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */,
-				0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */,
 			);
 			productRefGroup = 000C926E2BB30EDD00E553D4 /* Products */;
 			projectDirPath = "";
@@ -762,22 +741,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-charts";
-			requirement = {
-				kind = exactVersion;
-				version = 0.3.0;
-			};
-		};
-		0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-mapkit";
-			requirement = {
-				kind = exactVersion;
-				version = 0.3.0;
-			};
-		};
 		00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/liveview-native/liveview-client-swiftui";
@@ -794,22 +757,9 @@
 				version = 0.3.1;
 			};
 		};
-		00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/liveview-native/liveview-native-swiftui-avkit";
-			requirement = {
-				kind = exactVersion;
-				version = 0.3.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		00242EF72C6E516500CC972C /* LiveViewNativeAVKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */;
-			productName = LiveViewNativeAVKit;
-		};
 		00242EF92C6E516500CC972C /* LiveViewNative */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00C48D422C65599B002B23FF /* XCRemoteSwiftPackageReference "liveview-client-swiftui" */;
@@ -820,35 +770,10 @@
 			package = 00C48D5B2C6BBA58002B23FF /* XCRemoteSwiftPackageReference "liveview-native-live-form" */;
 			productName = LiveViewNativeLiveForm;
 		};
-		0032557D2CAF2FFB0097904C /* LiveViewNativeCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */;
-			productName = LiveViewNativeCharts;
-		};
-		0032557F2CAF2FFE0097904C /* LiveViewNativeMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */;
-			productName = LiveViewNativeMapKit;
-		};
-		003255812CAF30020097904C /* LiveViewNativeCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0032557B2CAF29CA0097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-charts" */;
-			productName = LiveViewNativeCharts;
-		};
-		003255832CAF30040097904C /* LiveViewNativeMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0032557C2CAF29E00097904C /* XCRemoteSwiftPackageReference "liveview-native-swiftui-mapkit" */;
-			productName = LiveViewNativeMapKit;
-		};
 		00C48D5C2C6BBA58002B23FF /* LiveViewNativeLiveForm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00C48D5B2C6BBA58002B23FF /* XCRemoteSwiftPackageReference "liveview-native-live-form" */;
 			productName = LiveViewNativeLiveForm;
-		};
-		00C48D5F2C6BBA60002B23FF /* LiveViewNativeAVKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 00CB96302C62886500ADBF08 /* XCRemoteSwiftPackageReference "liveview-native-swiftui-avkit" */;
-			productName = LiveViewNativeAVKit;
 		};
 		00C48D612C6BBA60002B23FF /* LiveViewNative */ = {
 			isa = XCSwiftPackageProductDependency;
