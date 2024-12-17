@@ -1,0 +1,76 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Debug ModifierGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/debug/ModifierGenerator",
+            "preLaunchTask": "swift: Build Debug ModifierGenerator (liveview-client-swiftui)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Release ModifierGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/release/ModifierGenerator",
+            "preLaunchTask": "swift: Build Release ModifierGenerator (liveview-client-swiftui)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Debug TutorialRepoGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/debug/TutorialRepoGenerator",
+            "preLaunchTask": "swift: Build Debug TutorialRepoGenerator (liveview-client-swiftui)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Release TutorialRepoGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/release/TutorialRepoGenerator",
+            "preLaunchTask": "swift: Build Release TutorialRepoGenerator (liveview-client-swiftui)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Debug DocumentationExtensionGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/debug/DocumentationExtensionGenerator",
+            "preLaunchTask": "swift: Build Debug DocumentationExtensionGenerator (liveview-client-swiftui)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Release DocumentationExtensionGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/release/DocumentationExtensionGenerator",
+            "preLaunchTask": "swift: Build Release DocumentationExtensionGenerator (liveview-client-swiftui)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Debug BuiltinRegistryGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/debug/BuiltinRegistryGenerator",
+            "preLaunchTask": "swift: Build Debug BuiltinRegistryGenerator (liveview-client-swiftui)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui",
+            "name": "Release BuiltinRegistryGenerator (liveview-client-swiftui)",
+            "program": "${workspaceFolder:liveview-native-app-go}/liveview-client-swiftui/.build/release/BuiltinRegistryGenerator",
+            "preLaunchTask": "swift: Build Release BuiltinRegistryGenerator (liveview-client-swiftui)"
+        }
+    ]
+}
