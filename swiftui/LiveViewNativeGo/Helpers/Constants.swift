@@ -31,4 +31,8 @@ extension URL {
     static var realityKit: Self {
         URL(string: "https://github.com/liveview-native/liveview-native-swiftui-realitykit")!
     }
+    
+    static var photoKit: Self {
+        URL(string: "https://github.com/liveview-native/liveview-native-swiftui-photokit")!
+    }
 }

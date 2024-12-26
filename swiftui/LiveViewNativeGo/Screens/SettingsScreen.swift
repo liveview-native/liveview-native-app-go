@@ -64,6 +64,7 @@ struct SettingsScreen: View {
                     Link("Swift Charts", destination: .charts)
                     Link("MapKit", destination: .mapKit)
                     Link("RealityKit", destination: .realityKit)
+                    Link("PhotoKit", destination: .photoKit)
                 } header: {
                     Text("Included Addons")
                 } footer: {
