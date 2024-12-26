@@ -1,22 +1,22 @@
 {
-  "originHash" : "b8cfef38b65ab52e7c29ba031026ab1f29f0b6ce0a13fa7bb96e517ed832ba79",
+  "originHash" : "26e64dfa8be48def8e4b84de1d64caf922d830f825a7c0cb945835ac86491762",
   "pins" : [
     {
       "identity" : "liveview-client-swiftui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveview-native/liveview-client-swiftui",
       "state" : {
-        "revision" : "669274b2314862b36a622d52f78eab007769bed9",
-        "version" : "0.3.1"
+        "revision" : "94676fce9fdfabc6b24fdf942ef874cdaac8ed5e",
+        "version" : "0.4.0-rc.0"
       }
     },
     {
-      "identity" : "liveview-native-core-swift",
+      "identity" : "liveview-native-core",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/liveview-native/liveview-native-core-swift.git",
+      "location" : "https://github.com/liveview-native/liveview-native-core",
       "state" : {
-        "revision" : "339594b395938e38f1fb2216a31c8791030ec9ba",
-        "version" : "0.2.1"
+        "revision" : "369503f39d7f257ac3361a1b7104ab14015c721c",
+        "version" : "0.4.0"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveview-native/liveview-native-live-form",
       "state" : {
-        "revision" : "ecedbf941e8818f6ba25ce71e612e3b2371a5039",
-        "version" : "0.3.1"
+        "revision" : "9e61b02906353bac563bf842f8ca8ab8441117d0",
+        "version" : "0.4.0-rc.0"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveview-native/liveview-native-swiftui-avkit",
       "state" : {
-        "revision" : "964c46d3a225d8822a196614e6317f7341445647",
-        "version" : "0.3.0"
+        "revision" : "a4c8757dfc644bc42ed001927edb0995ee93f8e9",
+        "version" : "0.4.0-rc.0"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveview-native/liveview-native-swiftui-charts",
       "state" : {
-        "revision" : "e5ffd6d3e55f677f12a976a1b3554f32a328ddf2",
-        "version" : "0.3.0"
+        "revision" : "dcef3897d0178eb43634b86dc8b20cc6f918582d",
+        "version" : "0.4.0-rc.0"
       }
     },
     {
@@ -51,17 +51,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/liveview-native/liveview-native-swiftui-mapkit",
       "state" : {
-        "revision" : "5b4e8edfb00c77dda8ed53635c8414451f56bd9e",
-        "version" : "0.3.0"
+        "revision" : "659eaa48cc41c64f3562698d1d337a5db72c307f",
+        "version" : "0.4.0-rc.0"
       }
     },
     {
-      "identity" : "liveview-native-swiftui-realitykit",
+      "identity" : "liveview-native-swiftui-photokit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/liveview-native/liveview-native-swiftui-realitykit",
+      "location" : "https://github.com/liveview-native/liveview-native-swiftui-photokit",
       "state" : {
-        "revision" : "39e91d394dedb4417c863f2cd4f01f9d48091635",
-        "version" : "0.3.1"
+        "revision" : "358e31c63d06093a32e885657060c0d8e21e1141",
+        "version" : "0.1.0-rc.0"
       }
     },
     {
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-async-algorithms",
       "state" : {
-        "revision" : "9cfed92b026c524674ed869a4ff2dcfdeedf8a2a",
-        "version" : "0.1.0"
+        "revision" : "4c3ea81f81f0a25d0470188459c6d4bf20cf2f97",
+        "version" : "1.0.3"
       }
     },
     {
@@ -114,26 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-syntax.git",
       "state" : {
-        "revision" : "64889f0c732f210a935a0ad7cda38f77f876262d",
-        "version" : "509.1.1"
-      }
-    },
-    {
-      "identity" : "swiftphoenixclient",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/davidstump/SwiftPhoenixClient.git",
-      "state" : {
-        "revision" : "2ea54b43202b053a1e84529509b91621d5601606",
-        "version" : "5.3.4"
-      }
-    },
-    {
-      "identity" : "swiftsoup",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/scinfu/SwiftSoup.git",
-      "state" : {
-        "revision" : "0837db354faf9c9deb710dc597046edaadf5360f",
-        "version" : "2.7.6"
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
       }
     },
     {

@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 #if os(iOS)
 import VisionKit
+import LiveViewNativePhotoKit
 #endif
 import LiveViewNative
 import LiveViewNativeLiveForm
@@ -49,8 +50,24 @@ struct SelectedApp: Identifiable, Hashable, Codable {
     #endif
     
     @ViewBuilder
+    @MainActor
     func makeLiveView(settings: Settings, dynamicType: DynamicTypeSize) -> some View {
-        #if os(tvOS)
+        #if os(iOS)
+        let view: AnyView = #LiveView(
+            url,
+            addons: [.liveForm, .avKit, .charts, .mapKit, .photoKit]
+        ) {
+            ConnectingView(url: url)
+        } disconnected: {
+            DisconnectedView()
+        } reconnecting: { content, isReconnecting in
+            ReconnectingView(isReconnecting: isReconnecting) {
+                content
+            }
+        } error: { error in
+            ErrorView(error: error)
+        }
+        #elseif os(tvOS)
         let view: AnyView = #LiveView(
             url,
             addons: [.liveForm, .avKit, .charts]
