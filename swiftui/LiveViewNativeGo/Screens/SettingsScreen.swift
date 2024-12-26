@@ -24,6 +24,20 @@ struct SettingsScreen: View {
                 }
                 Section {
                     Toggle("Use Dynamic Type", isOn: $settings.dynamicTypeEnabled)
+                    #if os(tvOS)
+                    LabeledContent("Dynamic Type Size") {
+                        Picker(selection: $settings.dynamicType) {
+                            ForEach(DynamicTypeSize.allCases, id: \.self) { size in
+                                Text(String(describing: size))
+                                    .tag(size)
+                            }
+                        } label: {
+                            Text("Dynamic Type")
+                        }
+                        .pickerStyle(.menu)
+                        .disabled(!settings.dynamicTypeEnabled)
+                    }
+                    #else
                     Slider(
                         value: Binding {
                             Double(DynamicTypeSize.allCases.firstIndex(of: settings.dynamicType)!)
@@ -36,16 +50,20 @@ struct SettingsScreen: View {
                         Text("Dynamic Type")
                     }
                     .disabled(!settings.dynamicTypeEnabled)
+                    #endif
                 } header: {
                     Text("Dynamic Type")
                 } footer: {
+                    #if !os(tvOS)
                     Text(String(describing: settings.dynamicType))
+                    #endif
                 }
                 Section {
                     Link("Live Form", destination: .liveForm)
                     Link("AVKit", destination: .avKit)
                     Link("Swift Charts", destination: .charts)
                     Link("MapKit", destination: .mapKit)
+                    Link("RealityKit", destination: .realityKit)
                 } header: {
                     Text("Included Addons")
                 } footer: {
@@ -55,13 +73,15 @@ struct SettingsScreen: View {
                 Section("About") {
                     LabeledContent("Client Version") {
                         Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")
+                            #if !os(tvOS)
                             .textSelection(.enabled)
+                            #endif
                     }
                     LabeledContent("Build", value: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "")
                     Link("Release Notes", destination: URL(string: "https://github.com/liveview-native/liveview-client-swiftui/releases/tag/\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")")!)
                 }
             }
-                #if os(iOS)
+                #if os(iOS) || os(visionOS)
                 .navigationTitle("Settings")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {

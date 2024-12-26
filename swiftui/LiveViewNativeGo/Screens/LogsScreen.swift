@@ -32,6 +32,10 @@ struct LogsScreen: View {
                 Text(log.composedMessage)
                     .font(.body.monospaced())
             }
+            #if os(tvOS)
+            .focusable()
+            #endif
+            #if !os(tvOS)
             .contextMenu {
                 Button("Copy") {
                     #if os(macOS)
@@ -43,6 +47,7 @@ struct LogsScreen: View {
                     #endif
                 }
             }
+            #endif
             .listRowBackground(Group {
                 switch log.level {
                 case .error:

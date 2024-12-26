@@ -29,13 +29,6 @@ struct QuickActionsModifier: ViewModifier {
                 isPresented = true
                 tip.invalidate(reason: .actionPerformed)
             }
-            #endif
-            .quickActionsDialog(sizeClass: horizontalSizeClass ?? .regular, isPresented: $isPresented) {
-                actions
-            }
-            .sheet(isPresented: $isSettingsOpen) {
-                SettingsScreen()
-            }
             .inspector(isPresented: $isLogsOpen) {
                 LogsScreen()
                     .navigationTitle("Logs")
@@ -45,6 +38,13 @@ struct QuickActionsModifier: ViewModifier {
                     .tipBackground(.ultraThinMaterial)
                     .shadow(radius: 16)
                     .padding()
+            }
+            #endif
+            .quickActionsDialog(sizeClass: horizontalSizeClass ?? .regular, isPresented: $isPresented) {
+                actions
+            }
+            .sheet(isPresented: $isSettingsOpen) {
+                SettingsScreen()
             }
     }
     
@@ -57,7 +57,7 @@ struct QuickActionsModifier: ViewModifier {
             isLogsOpen = true
         }
         Button("Reset LiveView") {
-            selection = .init(url: app.url, id: UUID())
+            selection = app.withUniqueID()
         }
         Button("Disconnect", role: .destructive) {
             selection = nil

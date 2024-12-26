@@ -46,22 +46,22 @@ import SwiftUI
         }
     }
     
-    var recentURLs: [URL] {
+    var recentApps: [SelectedApp] {
         get {
-            access(keyPath: \.recentURLs)
-            return (UserDefaults.standard.array(forKey: "recentURLs") as? [String] ?? [])
-                .compactMap(URL.init)
+            access(keyPath: \.recentApps)
+            return UserDefaults.standard.data(forKey: "recentApps")
+                .flatMap({ try? JSONDecoder().decode([SelectedApp].self, from: $0) })
+                ?? []
         }
         set {
-            withMutation(keyPath: \.recentURLs) {
-                UserDefaults.standard.setValue(
-                    // remove duplicates
-                    newValue.reduce(into: [String]()) { partialResult, url in
-                        partialResult.removeAll(where: { $0 == url.absoluteString })
-                        partialResult.append(url.absoluteString)
-                    },
-                    forKey: "recentURLs"
-                )
+            withMutation(keyPath: \.recentApps) {
+                // remove duplicates
+                guard let apps = try? JSONEncoder().encode(newValue.reduce(into: [SelectedApp]()) { partialResult, app in
+                    partialResult.removeAll(where: { $0.url.absoluteString == app.url.absoluteString })
+                    partialResult.append(app)
+                })
+                else { return }
+                UserDefaults.standard.setValue(apps, forKey: "recentApps")
             }
         }
     }
