@@ -91,24 +91,6 @@
       }
     },
     {
-      "identity" : "swiftphoenixclient",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/davidstump/SwiftPhoenixClient.git",
-      "state" : {
-        "revision" : "f7098ca53af4c9eb2a5e43267c5db5a306c98335",
-        "version" : "5.3.3"
-      }
-    },
-    {
-      "identity" : "swiftsoup",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/scinfu/SwiftSoup.git",
-      "state" : {
-        "revision" : "3c2c7e1e72b8abd96eafbae80323c5c1e5317437",
-        "version" : "2.7.5"
-      }
-    },
-    {
       "identity" : "xctest-dynamic-overlay",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",

@@ -10,9 +10,9 @@ import Foundation
 import VisionKit
 import LiveViewNative
 import LiveViewNativeLiveForm
-import LiveViewNativeAVKit
-import LiveViewNativeCharts
-import LiveViewNativeMapKit
+//import LiveViewNativeAVKit
+//import LiveViewNativeCharts
+//import LiveViewNativeMapKit
 import TipKit
 
 /// The current app to display, with a unique ID for each instance of this app launched.
